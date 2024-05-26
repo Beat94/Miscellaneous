@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TimeCalcCalc.Models;
 public class Input
 {
-    public string start { get; set; }
-    public string end { get; set; }
-    public string location { get; set; }
+    public string Start { get; set; }
+    public string End { get; set; }
+    public string Location { get; set; }
 }
