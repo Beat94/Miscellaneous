@@ -19,10 +19,14 @@ class Program
             link = args[0];
         }
 
-        config = tb.loadConfig(link);
+        config = tb.LoadConfig(link);
 
         // search files, load them and calc
-        
+        for (DateOnly dateIndicator = config.Start; dateIndicator <= config.End; dateIndicator.AddDays(1))
+        { 
+            string filename = tb.DateOnlyToFilename(dateIndicator);
+            // find File by filename
+        }
 
         // output
 

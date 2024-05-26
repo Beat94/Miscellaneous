@@ -12,6 +12,11 @@ namespace TimeCalcCalc;
 
 public class Toolbox
 {
+    public string DateOnlyToFilename(DateOnly date)
+    {
+        return $"today_{date.Day}-{date.Month}-{date.Year}";
+    }
+
     public Config InputToConfig(Input input)
     {
         Config config = new();
@@ -20,9 +25,9 @@ public class Toolbox
         {
             config = new()
             {
-                Location = input.location,
-                Start = DateOnly.Parse(input.start),
-                End = DateOnly.Parse(input.end)
+                Location = input.Location,
+                Start = DateOnly.Parse(input.Start),
+                End = DateOnly.Parse(input.End)
             };
         }
         catch (Exception ex)
@@ -33,7 +38,7 @@ public class Toolbox
         return config;
     }
 
-    public Config loadConfig(string link)
+    public Config LoadConfig(string link)
     {
         Input input = new();
         Config output = new();
