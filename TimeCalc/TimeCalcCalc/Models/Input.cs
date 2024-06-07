@@ -9,5 +9,7 @@ public class Input
 {
     public string Start { get; set; }
     public string End { get; set; }
-    public string Location { get; set; }
+    public string LocationFiles { get; set; }
+    public string LocationOutput { get; set; }
 }
+

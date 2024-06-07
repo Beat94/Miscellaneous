@@ -12,9 +12,11 @@ namespace TimeCalcCalc;
 
 public class Toolbox
 {
+
     public string DateOnlyToFilename(DateOnly date)
     {
-        return $"today_{date.Day}-{date.Month}-{date.Year}";
+        string dateFormatted = Convert.ToString(date.ToString("dd-MM-yy"));
+        return $"today_{dateFormatted}.txt";
     }
 
     public Config InputToConfig(Input input)
@@ -25,7 +27,8 @@ public class Toolbox
         {
             config = new()
             {
-                Location = input.Location,
+                LocationFiles = input.LocationFiles,
+                LocationOutput = input.LocationOutput,
                 Start = DateOnly.Parse(input.Start),
                 End = DateOnly.Parse(input.End)
             };
@@ -61,5 +64,16 @@ public class Toolbox
         }
 
         return output;
+    }
+
+    public double TimeCalc(TimeOnly timeLower, TimeOnly timeHigher)
+    {
+        TimeSpan timeSpan = timeHigher - timeLower;
+        return timeSpan.TotalHours;
+    }
+
+    public void writeFile(string location, string output)
+    {
+        File.WriteAllText(location, output);
     }
 }

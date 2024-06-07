@@ -8,7 +8,8 @@ namespace TimeCalcCalc.Models;
 
 public class Config
 {
-    public string Location { get; set; }
+    public string LocationFiles { get; set; }
+    public string LocationOutput {get; set; }
     public DateOnly Start { get; set; }
     public DateOnly End { get; set; }
 }

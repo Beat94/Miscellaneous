@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeCalcCalc", "TimeCalcCalc\TimeCalcCalc.csproj", "{9FFF7C14-3969-4E37-8C3F-808C34DA64AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeCalcCalcTest", "TimeCalcCalcTest\TimeCalcCalcTest.csproj", "{3E274AFD-9A67-4E68-BA31-3034C6AF54B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{9FFF7C14-3969-4E37-8C3F-808C34DA64AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FFF7C14-3969-4E37-8C3F-808C34DA64AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FFF7C14-3969-4E37-8C3F-808C34DA64AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E274AFD-9A67-4E68-BA31-3034C6AF54B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E274AFD-9A67-4E68-BA31-3034C6AF54B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E274AFD-9A67-4E68-BA31-3034C6AF54B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E274AFD-9A67-4E68-BA31-3034C6AF54B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
