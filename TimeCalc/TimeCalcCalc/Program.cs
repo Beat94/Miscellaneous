@@ -35,6 +35,7 @@ class Program
             string filename = tb.DateOnlyToFilename(dateIndicator);
             string input = "";
             string parsedInput = "";
+            double timeResult = 0.0f;
 
             // find File by filename
             try
@@ -55,19 +56,19 @@ class Program
 
             for(int i = 0; i < inputSplitArray.Length - 1; i += 2)
             {
-                TimeOnly tLower = DateTime.Parse(inputSplitArray);
-                tb.TimeCalc(TimeOnly timeLower, TimeOnly timeHigher);
+                TimeOnly timeLower = TimeOnly.Parse(inputSplitArray[i]);
+                TimeOnly timeHigher = TimeOnly.Parse(inputSplitArray[i+1]);
+                // add time for each part
+                timeResult += tb.TimeCalc(timeLower, timeHigher);
             }
 
-            // add time for each part
 
             // write calculation each day in File
-            outputHandler.addEntry();
+            outputHandler.addEntry(config.LocationOutput, input, timeResult);
         }
 
-
         // output
-        tb.writeFile(config.LocationOutput + "//time.txt",);
+        tb.writeFile(config.LocationOutput + "//time.txt", outputHandler.getEntries());
 
         logging.newEntry(LogType.Info, $"Program End");
         //write logging to location

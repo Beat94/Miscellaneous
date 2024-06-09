@@ -5,12 +5,15 @@ namespace TimeCalcCalc;
 public class OutputHandler
 {
     public List<Output> outputList = new List<Output>();
-    public void addEntry(string filename, string line, float time)
+    public void addEntry(string filename, string line, double time)
     {
-        outputList.Add(new Output(){Filename = filename,Line = line, Time = time});
+        outputList.Add(new Output(){
+            Filename = filename, 
+            Line = line, 
+            Time = time});
     }
 
-    public string getLog()
+    public string getEntries()
     {
         string output = "";
 

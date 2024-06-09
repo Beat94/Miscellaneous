@@ -10,5 +10,5 @@ public class Output
 {
     public string Filename { get; set; }
     public string Line { get; set; }
-    public float Time { get; set; }
+    public double Time { get; set; }
 }
