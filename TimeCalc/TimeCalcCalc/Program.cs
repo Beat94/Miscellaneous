@@ -44,7 +44,7 @@ class Program
             }
             catch (Exception ex)
             {
-                logging.newEntry(LogType.Error, $"File {filename} not found");
+                logging.newEntry(LogType.Error, $"File {filename} not found \n {ex}");
             }
 
             // parse input
