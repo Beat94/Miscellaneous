@@ -1,4 +1,5 @@
 using TimeCalcCalc;
+using TimeCalcCalc.Models;
 
 namespace TimeCalcCalcTest;
 public class ToolboxText
@@ -15,11 +16,13 @@ public class ToolboxText
     }
 
     [Theory]
-    [InlineData()]
-    public void InputToConfigTest()
+    [InlineData("{'Start':'28.03.24','End':'30.03.24'}")]
+    public void LoadconfigTest(string input)
     {
         // new Config out of inlinedate
+        Config testConfig = tb.LoadConfig(input);
 
-        // 
+        // Compare result with inputdata
+        Assert.Equal("", testConfig.);
     }
 }
