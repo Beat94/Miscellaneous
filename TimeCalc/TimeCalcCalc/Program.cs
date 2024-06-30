@@ -11,15 +11,16 @@ class Program
     static Toolbox tb = new();
     static Logging logging = new Logging();
     static OutputHandler outputHandler = new OutputHandler();
-    static string link = Assembly.GetExecutingAssembly().Location;
+    static string link = "config.conf";
 
     public static void Main(string[] args)
     {
+        int pointer = 0;
         Console.WriteLine("HelloWelt");
         logging.newEntry(LogType.Info, "Started Application");
 
         // Load Config
-        if (String.IsNullOrEmpty(args[0]) == false)
+        if (args.Length > 0)
         {
             link = args[0];
         }
@@ -62,6 +63,13 @@ class Program
                 timeResult += tb.TimeCalc(timeLower, timeHigher);
             }
 
+
+            pointer++;
+
+            if(pointer > 999)
+            {
+                break;
+            }
 
             // write calculation each day in File
             outputHandler.addEntry(config.LocationOutput, input, timeResult);
