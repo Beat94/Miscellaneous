@@ -11,7 +11,7 @@ class Program
     static Toolbox tb = new();
     static Logging logging = new Logging();
     static OutputHandler outputHandler = new OutputHandler();
-    static string link = "config.conf";
+    static string link = $".\\..\\..\\..\\config.conf";
 
     public static void Main(string[] args)
     {
@@ -28,7 +28,7 @@ class Program
         logging.newEntry(LogType.Info, $"Set link to config-file is: {link}");
 
         config = tb.LoadConfig(link);
-        logging.newEntry(LogType.Info, $"Set config is: LocationFiles: {config.LocationFiles} | LocationOuput: {config.LocationFiles} | StartDate {config.Start} | EndDate {config.End}");
+         
 
         // search files, load them and calc
         for (DateOnly dateIndicator = config.Start; dateIndicator <= config.End; dateIndicator.AddDays(1))
@@ -41,7 +41,7 @@ class Program
             // find File by filename
             try
             {
-                input = File.ReadLines(config.LocationFiles).First() ?? "";
+                input = File.ReadLines(config.LocationFiles+"\\"+filename).First();
             }
             catch (Exception ex)
             {
@@ -76,12 +76,12 @@ class Program
         }
 
         // output
-        tb.writeFile(config.LocationOutput + "//time.txt", outputHandler.getEntries());
+        tb.writeFile(config.LocationOutput + "\\time.txt", outputHandler.getEntries());
 
         logging.newEntry(LogType.Info, $"Program End");
         //write logging to location
         string outputLogLink = config.LocationOutput ?? link;
-        outputLogLink += "//programLog.txt";
+        outputLogLink += "\\programLog.txt";
         tb.writeFile(outputLogLink,logging.getLog());
     }
 }
