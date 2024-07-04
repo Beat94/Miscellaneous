@@ -1,0 +1,9 @@
+﻿################################################################################
+# Diese .gitignore-Datei wurde von Microsoft(R) Visual Studio automatisch erstellt.
+################################################################################
+
+/TimeCalc/.vs/TimeCalc
+/TimeCalc/TimeCalcCalc/bin
+/TimeCalc/TimeCalcCalc/obj
+/TimeCalc/TimeCalcCalcTest/bin
+/TimeCalc/TimeCalcCalcTest/obj
