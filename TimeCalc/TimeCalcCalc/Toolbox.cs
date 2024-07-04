@@ -25,13 +25,11 @@ public class Toolbox
 
         try
         {
-            config = new()
-            {
-                LocationFiles = input.LocationFiles,
-                LocationOutput = input.LocationOutput,
-                Start = DateOnly.Parse(input.Start),
-                End = DateOnly.Parse(input.End)
-            };
+            config.LocationFiles = input.LocationFiles;
+            config.LocationOutput = input.LocationOutput;
+            config.Start = DateOnly.Parse(input.Start);
+            config.End = DateOnly.Parse(input.End);
+
         }
         catch (Exception ex)
         {

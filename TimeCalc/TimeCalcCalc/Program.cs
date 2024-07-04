@@ -31,34 +31,50 @@ class Program
          
 
         // search files, load them and calc
-        for (DateOnly dateIndicator = config.Start; dateIndicator <= config.End; dateIndicator.AddDays(1))
+        for (DateOnly dateIndicator = config.Start; dateIndicator <= config.End; dateIndicator = dateIndicator.AddDays(1))
         { 
             string filename = tb.DateOnlyToFilename(dateIndicator);
             string input = "";
             string parsedInput = "";
             double timeResult = 0.0f;
+            
 
             // find File by filename
             try
             {
-                input = File.ReadLines(config.LocationFiles+"\\"+filename).First();
+
+                StreamReader streamRead = new StreamReader($"{config.LocationFiles}\\{filename}");
+                input = streamRead.ReadLine();
+                streamRead.Close();
             }
             catch (Exception ex)
             {
                 logging.newEntry(LogType.Error, $"File {filename} not found \n {ex}");
+                continue;
             }
+
 
             // parse input
             parsedInput = input.TrimStart('-');
             parsedInput = parsedInput.TrimStart(' ');
             string[] inputSplitArray = parsedInput.Split(" | ");
-            
+            List<TimeOnly> inputSplitTimeArray = new List<TimeOnly>();
+
+            foreach(string item in inputSplitArray)
+            {
+                string[] splitItem = item.Split(" - ");
+                inputSplitTimeArray.Add(TimeOnly.Parse(splitItem[0]));
+                inputSplitTimeArray.Add(TimeOnly.Parse(splitItem[1]));
+            }
+
             // maybe check if array lenghts modulo 2 is 0
 
-            for(int i = 0; i < inputSplitArray.Length - 1; i += 2)
+            for(int i = 0; i < inputSplitTimeArray.Count - 1; i += 2)
             {
-                TimeOnly timeLower = TimeOnly.Parse(inputSplitArray[i]);
-                TimeOnly timeHigher = TimeOnly.Parse(inputSplitArray[i+1]);
+                //TimeOnly timeLower = TimeOnly.Parse(inputSplitTimeArray.[i]);
+                //TimeOnly timeHigher = TimeOnly.Parse(inputSplitTimeArray[i+1]);
+                TimeOnly timeLower = inputSplitTimeArray[i];
+                TimeOnly timeHigher = inputSplitTimeArray[i+1];
                 // add time for each part
                 timeResult += tb.TimeCalc(timeLower, timeHigher);
             }
@@ -72,7 +88,7 @@ class Program
             }
 
             // write calculation each day in File
-            outputHandler.addEntry(config.LocationOutput, input, timeResult);
+            outputHandler.addEntry($"{config.LocationFiles}\\{filename}", input, timeResult);
         }
 
         // output
