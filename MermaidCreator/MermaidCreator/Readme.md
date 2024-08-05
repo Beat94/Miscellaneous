@@ -1,6 +1,12 @@
 # Documentation of MermaidCreator
 This project creates out of dotnet projects a class diagram.
 
+# notation
+'+ Public'
+'- Private'
+'# Protected'
+'~ Package'
+
 # Link
 https://mermaid.js.org/syntax/classDiagram.html
 
@@ -13,3 +19,10 @@ https://mermaid.js.org/syntax/classDiagram.html
 [ ] Inheritance
 [ ] Global variables in class
 [ ] Configuration via IConfigration
+[ ] Connection of classes (Association, Dependency, Aggregation, Composition, Interitance, Realisation)
+[ ] Load Configuration (Usage of IConfiguration)
+	- Location analyzed project
+	- Definition Output (Mermaid or other - first one is Mermaid)
+	- check Configuration
+[ ] Write file according defined output
+
