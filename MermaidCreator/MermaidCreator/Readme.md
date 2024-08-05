@@ -2,9 +2,9 @@
 This project creates out of dotnet projects a class diagram.
 
 # notation
-'+ Public'
-'- Private'
-'# Protected'
+'+ Public'  
+'- Private'  
+'# Protected'  
 '~ Package'
 
 # Link
