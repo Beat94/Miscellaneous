@@ -8,12 +8,12 @@
 /TimeCalc/TimeCalcCalcTest/bin
 /TimeCalc/TimeCalcCalcTest/obj
 /MermaidCreator/.vs
-/MermaidCreator/MermaidCreator/bin/Debug/net8.0/MermaidCreator.deps.json
+**bin/**
 /MermaidCreator/MermaidCreator/bin/Debug/net8.0/MermaidCreator.dll
 /MermaidCreator/MermaidCreator/bin/Debug/net8.0/MermaidCreator.pdb
 /MermaidCreator/MermaidCreator/bin/Debug/net8.0/MermaidCreator.exe
 *.json
-/MermaidCreator/MermaidCreator/obj/Debug/net8.0/ref/MermaidCreator.dll
+**/obj/**
 /MermaidCreator/MermaidCreator/obj/Debug/net8.0/refint/MermaidCreator.dll
 /MermaidCreator/MermaidCreator/obj/Debug/net8.0/apphost.exe
 /MermaidCreator/MermaidCreator/obj/Debug/net8.0/MermaidCreator.csproj.BuildWithSkipAnalyzers
