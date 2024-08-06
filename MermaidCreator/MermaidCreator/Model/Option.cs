@@ -9,5 +9,5 @@ namespace MermaidCreator.Model;
 public class Option
 {
     public string Name { get; set; }
-    public AccessModifier accessModifier;
+    public AccessModifier accessModifier { get; set; }
 }
