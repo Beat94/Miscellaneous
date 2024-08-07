@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MermaidCreator.Model;
 
-public class ClassManaer
+public class ClassManager
 {
     IList<ClassConstructor> Classes = new List<ClassConstructor>();
     IList<ClassRelationship> ClassRelationships = new List<ClassRelationship>();
