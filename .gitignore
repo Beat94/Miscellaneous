@@ -2,7 +2,23 @@
 # Diese .gitignore-Datei wurde von Microsoft(R) Visual Studio automatisch erstellt.
 ################################################################################
 
-**/.vs/**
-**/bin/**
+/TimeCalc/.vs/TimeCalc
+/TimeCalc/TimeCalcCalc/bin
+/TimeCalc/TimeCalcCalc/obj
+/TimeCalc/TimeCalcCalcTest/bin
+/TimeCalc/TimeCalcCalcTest/obj
+/MermaidCreator/.vs
+**bin/**
+/MermaidCreator/MermaidCreator/bin/Debug/net8.0/MermaidCreator.dll
+/MermaidCreator/MermaidCreator/bin/Debug/net8.0/MermaidCreator.pdb
+/MermaidCreator/MermaidCreator/bin/Debug/net8.0/MermaidCreator.exe
+*.json
 **/obj/**
-**/.vscode/**
+/MermaidCreator/MermaidCreator/obj/Debug/net8.0/refint/MermaidCreator.dll
+/MermaidCreator/MermaidCreator/obj/Debug/net8.0/apphost.exe
+/MermaidCreator/MermaidCreator/obj/Debug/net8.0/MermaidCreator.csproj.BuildWithSkipAnalyzers
+/MermaidCreator/MermaidCreator/obj/Debug/net8.0/MermaidCreator.csproj.CoreCompileInputs.cache
+/MermaidCreator/MermaidCreator/obj/Debug/net8.0/MermaidCreator.csproj.FileListAbsolute.txt
+/MermaidCreator/MermaidCreator/obj/Debug/net8.0/MermaidCreator.dll
+/MermaidCreator/MermaidCreator/obj/Debug/net8.0/MermaidCreator.genruntimeconfig.cache
+/MermaidCreator/MermaidCreator/obj/Debug/net8.0/MermaidCreator.pdb
