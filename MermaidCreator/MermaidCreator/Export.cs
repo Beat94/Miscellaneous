@@ -19,10 +19,25 @@ public class Export
     
     }
 
-    public void CreateClassdiagram(ClassManager classManager)
+    public void CreateClassdiagram(ClassManager classManager, string? title)
     {
-        string outputString = "classDiagram\n";
+        string outputString = "";
 
+        if (title != null || title != string.Empty || !String.IsNullOrEmpty(title))
+        {
+            outputString += $"---\ntitle: {title}\n---\n";
+        }
+
+        outputString += "classDiagram\n";
+
+        // Add Relationships
+        foreach (ClassRelationship cr in classManager.ClassRelationships)
+        { 
+            classe.
+        }
+
+        // Classes
+        // Add Class variables
 
     }
 
