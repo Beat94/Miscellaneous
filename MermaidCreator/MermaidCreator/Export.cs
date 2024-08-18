@@ -33,7 +33,7 @@ public class Export
         // Add Relationships
         foreach (ClassRelationship cr in classManager.ClassRelationships)
         { 
-            classe.
+            outputString += $"{cr.Class1.ClassName} "
         }
 
         // Classes

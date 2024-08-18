@@ -1,6 +1,6 @@
 ﻿public enum Relationship
 {
-    Dependency,
+    Dependency+,
     Association,
     Aggregation,
     Composition,
