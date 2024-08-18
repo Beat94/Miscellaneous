@@ -9,40 +9,19 @@ namespace MermaidCreator;
 
 public class Export
 {
-    private void addRelation(string class1, string class2, ClassRelationship cr)
-    { 
-        
-    }
-
-    private void addClass()
-    { 
-    
-    }
-
-    public void CreateClassdiagram(ClassManager classManager, string? title)
+    private string addRelations(ClassManager classManager)
     {
-        string outputString = "";
-
-        if (title != null || title != string.Empty || !String.IsNullOrEmpty(title))
-        {
-            outputString += $"---\ntitle: {title}\n---\n";
-        }
-
-        outputString += "classDiagram\n";
-
-        // Add Relationships
+        string output = "";
         foreach (ClassRelationship cr in classManager.ClassRelationships)
         {
-            outputString += $"\t{RelationShipWriter(cr.Class1.ClassName, cr.Class1ToClass2, cr.Class2.ClassName)}\n";
+            output += $"\t{RelationShipWriter(cr.Class1.ClassName, cr.Class1ToClass2, cr.Class2.ClassName)}\n";
         }
 
-        // Classes
-        // Add Class variables
-
+        return output;
     }
 
     public string RelationShipWriter(string Classname1, RelationShip RelationshipClass1ToClass2, string class2)
-    { 
+    {
         return $"{Classname1} {RelationshipHelper(RelationshipClass1ToClass2)} {class2}";
     }
 
@@ -50,7 +29,7 @@ public class Export
     {
         string output = "";
 
-        switch (rl) 
+        switch (rl)
         {
             case RelationShip.Dependency:
                 output = "..>";
@@ -75,4 +54,28 @@ public class Export
         return output;
     }
 
+    private void addClasses()
+    { 
+    
+    }
+
+    public void CreateClassdiagram(ClassManager classManager, string? title)
+    {
+        string outputString = "";
+
+
+        if (title != null || title != string.Empty || !String.IsNullOrEmpty(title))
+        {
+            outputString += $"---\ntitle: {title}\n---\n";
+        }
+
+        outputString += "classDiagram\n";
+
+        // Add Relationships
+        outputString += addRelations(classManager);
+
+        // Classes
+        // Add Class variables
+
+    }
 }
