@@ -54,9 +54,29 @@ public class Export
         return output;
     }
 
-    private void addClasses()
-    { 
-    
+    private string addClasses(ClassManager classManager)
+    {
+        string output = "";
+
+        foreach(ClassConstructor klasse in classManager.Classes)
+        {
+            output += $"\t class {klasse.ClassName}" + "{\n";
+
+            foreach(ClassVariable variable in klasse.Variables)
+            {
+                output += $"\t\t{variable.getVariablename()}";
+            }
+
+            foreach (ClassFunction function in klasse.Functions)
+            {
+                output += $"\t\t{function.getFunctionnameWithAccessModifier()}";
+            }
+
+            output += "\t}";
+        }
+        
+
+        return output;
     }
 
     public void CreateClassdiagram(ClassManager classManager, string? title)
@@ -75,6 +95,8 @@ public class Export
         outputString += addRelations(classManager);
 
         // Classes
+        outputString += addClasses(classManager);
+
         // Add Class variables
 
     }
