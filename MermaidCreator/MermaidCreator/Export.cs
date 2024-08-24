@@ -94,10 +94,7 @@ public class Export
         // Add Relationships
         outputString += addRelations(classManager);
 
-        // Classes
+        // Classes and ClassVariables
         outputString += addClasses(classManager);
-
-        // Add Class variables
-
     }
 }
