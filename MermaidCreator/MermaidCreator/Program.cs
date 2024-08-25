@@ -10,6 +10,8 @@ public class Program
         Console.WriteLine("Hallo Welt");
 
         cmTest();
+
+        // TODO: add IConfiguration
     }
 
     public static void cmTest()
