@@ -60,29 +60,29 @@ public class Export
 
         foreach(ClassConstructor klasse in classManager.Classes)
         {
-            output += $"\t class {klasse.ClassName}" + "{\n";
+            output += $"\tclass {klasse.ClassName}" + "{\n";
 
             foreach(ClassVariable variable in klasse.Variables)
             {
-                output += $"\t\t{variable.getVariablename()}";
+                output += $"\t\t{variable.getVariableWithAccessModifier()}\n";
             }
 
             foreach (ClassFunction function in klasse.Functions)
             {
-                output += $"\t\t{function.getFunctionnameWithAccessModifier()}";
+                output += $"\t\t{function.getFunctionnameWithAccessModifier()}\n";
             }
 
-            output += "\t}";
+            output += "\t}\n";
         }
         
 
         return output;
     }
 
-    public void CreateClassdiagram(ClassManager classManager, string? title)
+    public string CreateClassdiagram(ClassManager classManager)
     {
         string outputString = "";
-
+        string title = classManager.DiagramName;
 
         if (title != null || title != string.Empty || !String.IsNullOrEmpty(title))
         {
@@ -96,5 +96,7 @@ public class Export
 
         // Classes and ClassVariables
         outputString += addClasses(classManager);
+
+        return outputString;
     }
 }

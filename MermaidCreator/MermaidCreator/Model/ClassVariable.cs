@@ -8,7 +8,9 @@ namespace MermaidCreator.Model;
 
 public class ClassVariable : Option
 {
+    public string varType { get; set; }
+
     public string getVariablename() => base.Name;
 
-    public string getVariableWithAccessModifier() => base.getAccessModifier() + getVariablename();
+    public string getVariableWithAccessModifier() => $"{base.getAccessModifier()}{varType} {getVariablename()}";
 }
