@@ -20,7 +20,7 @@ public class Export
         return output;
     }
 
-    public string RelationShipWriter(string Classname1, RelationShip RelationshipClass1ToClass2, string class2)
+    private string RelationShipWriter(string Classname1, RelationShip RelationshipClass1ToClass2, string class2)
     {
         return $"{Classname1} {RelationshipHelper(RelationshipClass1ToClass2)} {class2}";
     }

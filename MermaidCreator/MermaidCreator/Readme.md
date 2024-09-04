@@ -10,6 +10,10 @@ This project creates out of dotnet projects a class diagram.
 # Link
 https://mermaid.js.org/syntax/classDiagram.html
 
+# toDo
+[ ] add IConfiguration
+[ ] implement reader-class
+
 # Use Cases
 [ ] One class in one file  
 [ ] Multiple classes in one file  

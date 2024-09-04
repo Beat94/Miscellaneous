@@ -1,10 +1,20 @@
-﻿namespace MermaidCreator;
+﻿using MermaidCreator.Model;
+
+namespace MermaidCreator;
 
 public class Reader
 {
-    // goes through project and creates mermaid model using Mermaid Model-Class
+    public string location { get; set; }
 
-    // Filters all files in folder with the ending .cs
+    public ClassManager CreateModel()
+    {
+        ClassManager ClassManagerOutput = new();
+        // goes through project and creates mermaid model using Mermaid Model-Class
 
-    // Opens file and analizes it
+        // Filters all files in folder with the ending .cs
+
+        // Opens file and analizes it
+
+        return ClassManagerOutput;
+    }
 }
