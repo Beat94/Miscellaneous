@@ -11,7 +11,7 @@ This project creates out of dotnet projects a class diagram.
 https://mermaid.js.org/syntax/classDiagram.html
 
 # toDo
-[ ] add IConfiguration
+[X] add IConfiguration
 [ ] implement reader-class
 
 # Use Cases
