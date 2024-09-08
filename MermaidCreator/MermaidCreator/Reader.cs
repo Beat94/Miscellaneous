@@ -9,7 +9,8 @@ public class Reader
     public ClassManager CreateModel()
     {
         ClassManager ClassManagerOutput = new();
-        // goes through project and creates mermaid model using Mermaid Model-Class
+
+        // goes through project and creates Mermaid model using Mermaid Model-Class
 
         // Filters all files in folder with the ending .cs
 

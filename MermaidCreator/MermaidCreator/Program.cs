@@ -1,17 +1,18 @@
 ﻿using MermaidCreator.Model;
 using System.Xml.Schema;
+using Microsoft.Extensions.Configuration;
 
 namespace MermaidCreator;
 
 public class Program
 {
+    public static IConfiguration Configuration;
+
     public static void Main(string[] args)
     {
         Console.WriteLine("Hallo Welt");
 
         cmTest();
-
-        // TODO: add IConfiguration
     }
 
     public static void cmTest()
