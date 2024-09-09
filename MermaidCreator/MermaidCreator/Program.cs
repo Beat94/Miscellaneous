@@ -10,9 +10,22 @@ public class Program
 
     public static void Main(string[] args)
     {
+        ConfigLoader configLoader = new();
+        Configuration = configLoader.loadConfig();
+
         Console.WriteLine("Hallo Welt");
+        confTest();
 
         cmTest();
+    }
+
+    public static void confTest()
+    {
+        if (Configuration != null 
+            && !Configuration["Foder"].Equals(null))
+        {
+            Console.WriteLine($"Folder: {Configuration["Folder"]}");
+        }
     }
 
     public static void cmTest()

@@ -11,38 +11,53 @@ internal class ConfigLoader
 {
     IConfiguration config;
 
-    string link { get; set; }
+    internal string? link = null;
+
+    internal IConfiguration loadConfig()
+    {
+        return loadConfig(null, null);
+    }
 
     internal IConfiguration loadConfig(string? link, string[]? args)
     {
         string linkConfig;
-
-        if (link != null 
-            || !link.Equals("", StringComparison.InvariantCultureIgnoreCase) 
-            || !link.Equals("", StringComparison.InvariantCultureIgnoreCase))
+        try
         {
-            linkConfig = link;
+            if (link != null)
+            {
+                linkConfig = link;
+            }
+            else if (args.FirstOrDefault() != null)
+            {
+                linkConfig = args.FirstOrDefault();
+            }
+            if (this.link != null)
+            {
+                linkConfig = link;
+            }
+            else
+            {
+                linkConfig = Directory.GetCurrentDirectory();
+            }
         }
-        else if (args.FirstOrDefault() != null 
-            || !args.FirstOrDefault().Equals("", StringComparison.InvariantCultureIgnoreCase) 
-            || !args.FirstOrDefault().Equals("", StringComparison.InvariantCultureIgnoreCase))
-        { 
-            linkConfig = args.FirstOrDefault();
-        }
-        if (this.link != null
-            || !this.link.Equals("", StringComparison.InvariantCultureIgnoreCase)
-            || !this.link.Equals("", StringComparison.InvariantCultureIgnoreCase))
+        catch (Exception ex)
         {
-            linkConfig = link;
+            Console.WriteLine(ex.Data);
         }
-        else
+        finally
         {
             linkConfig = Directory.GetCurrentDirectory();
         }
 
-        var configBuidler = new ConfigurationBuilder().SetBasePath(linkConfig).AddJsonFile("appsettings.json");
-
-        config = configBuidler.Build();
+        try
+        {
+            var configBuidler = new ConfigurationBuilder().SetBasePath(linkConfig).AddJsonFile("appsettings.json");
+            config = configBuidler.Build();
+        }
+        catch (Exception ex)
+        {
+            _ = ex;
+        }
 
         return config;
     }
@@ -51,7 +66,7 @@ internal class ConfigLoader
     { 
         return config.GetSection(section);
     }
-    
+
     /*
     public void cl()
     {
