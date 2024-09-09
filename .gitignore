@@ -8,7 +8,7 @@
 /TimeCalc/TimeCalcCalcTest/bin
 /TimeCalc/TimeCalcCalcTest/obj
 /MermaidCreator/.vs
-**bin/**
+**/bin/**
 /MermaidCreator/MermaidCreator/bin/Debug/net8.0/MermaidCreator.dll
 /MermaidCreator/MermaidCreator/bin/Debug/net8.0/MermaidCreator.pdb
 /MermaidCreator/MermaidCreator/bin/Debug/net8.0/MermaidCreator.exe

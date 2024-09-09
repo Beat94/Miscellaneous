@@ -13,6 +13,10 @@ public class Reader
         // goes through project and creates Mermaid model using Mermaid Model-Class
         string[] fileList = Directory.GetFiles(location, "*.cs", SearchOption.AllDirectories);
 
+        foreach (string file in fileList)
+        { 
+        
+        }
 
 
         // Filters all files in folder with the ending .cs
