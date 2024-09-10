@@ -1,0 +1,9 @@
+public class Testcase1
+{
+	public string1 = "Teststring";
+
+	public Testcase1Function(String[]args)
+	{
+		int testint = 0;
+	}
+}
