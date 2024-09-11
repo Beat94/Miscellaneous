@@ -12,6 +12,7 @@ https://mermaid.js.org/syntax/classDiagram.html
 
 # toDo
 - ~~add IConfiguration~~
+- fix issue with configuration
 - implement reader-class
 
 # Use Cases
