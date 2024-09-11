@@ -22,7 +22,7 @@ public class Program
     public static void confTest()
     {
         if (Configuration != null 
-            && !Configuration["Foder"].Equals(null))
+            && !Configuration["Folder"].Equals(null))
         {
             Console.WriteLine($"Folder: {Configuration["Folder"]}");
         }
