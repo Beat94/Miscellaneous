@@ -35,10 +35,6 @@ internal class ConfigLoader
             {
                 linkConfig = link;
             }
-            else
-            {
-                linkConfig = Directory.GetDirectoryRoot();
-            }
         }
         catch (Exception ex)
         {

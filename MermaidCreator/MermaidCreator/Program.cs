@@ -10,8 +10,7 @@ public class Program
 
     public static void Main(string[] args)
     {
-        ConfigLoader configLoader = new();
-        Configuration = configLoader.loadConfig();
+        Configuration = Toolbox.loadConfigModule();
 
         Console.WriteLine("Hallo Welt");
         confTest();
