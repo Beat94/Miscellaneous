@@ -8,9 +8,10 @@ namespace MermaidCreatorTest;
 
 public class ReaderTest
 {
-    [Fact]
-    public void testli()
-    { 
-        
+    [Theory]
+    [InlineData("Testcase1Input.cs.txt", "Testcase1Output.json")]
+    public void Test1(string input, string output)
+    {
+
     }
 }

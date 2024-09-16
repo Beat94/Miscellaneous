@@ -1,3 +1,7 @@
+using system;
+
+namespace test;
+
 public class Testcase1
 {
 	public string1 = "Teststring";
