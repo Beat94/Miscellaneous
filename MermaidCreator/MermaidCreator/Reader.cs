@@ -25,4 +25,13 @@ public class Reader
 
         return ClassManagerOutput;
     }
+
+    public ClassManager AnalyzeFile(string file)
+    {
+        ClassManager ClassManangerOutput = new();
+
+        // Logic to analyze file
+
+        return ClassManangerOutput;
+    }
 }

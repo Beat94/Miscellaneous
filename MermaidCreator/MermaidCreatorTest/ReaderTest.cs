@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using MermaidCreator;
+using MermaidCreator.Model;
 
 namespace MermaidCreatorTest;
 
@@ -12,6 +15,10 @@ public class ReaderTest
     [InlineData("Testcase1Input.cs.txt", "Testcase1Output.json")]
     public void Test1(string input, string output)
     {
+        Reader readerInput = new Reader();
+        ClassManager ClassManagerInput = readerInput.AnalyzeFile(input);
+        ClassManager ClassManagerOutput = IJsonOnDeserializing
 
+        Assert.Equal(input, output);
     }
 }
