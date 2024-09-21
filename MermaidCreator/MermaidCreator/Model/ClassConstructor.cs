@@ -8,7 +8,7 @@ namespace MermaidCreator.Model;
 
 public class ClassConstructor
 {
-    string ClassName { get; }
-    IList<ClassFunction> Functions = new List<ClassFunction>();
-    IList<ClassVariable> Variables = new List<ClassVariable>();
+    public string ClassName { get; set; }
+    public IList<ClassFunction> Functions = new List<ClassFunction>();
+    public IList<ClassVariable> Variables = new List<ClassVariable>();
 }

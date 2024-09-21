@@ -1,9 +1,8 @@
-﻿public enum Relationship
+﻿public enum RelationShip
 {
     Dependency,
     Association,
     Aggregation,
     Composition,
-    Generalisation,
-    Relazation
+    Generalisation
 }

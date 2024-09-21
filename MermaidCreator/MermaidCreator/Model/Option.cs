@@ -30,7 +30,7 @@ public class Option
             output = "+";
         }
 
-        if (output.Equals("") == false)
+        if (output.Equals("") != true)
         {
             output += " ";
         }

@@ -10,5 +10,5 @@ public class ClassRelationship
 {
     public ClassConstructor Class1 { get; set; }
     public ClassConstructor Class2 { get; set; }
-    public Relationship Class1ToClass2 { get; set; }
+    public RelationShip Class1ToClass2 { get; set; }
 }
