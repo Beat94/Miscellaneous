@@ -6,9 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MermaidCreator", "MermaidCreator\MermaidCreator.csproj", "{7DDD8442-96C7-4DC7-AAE5-86AFA4B66A1D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MermaidCreatorTest", "MermaidCreatorTest\MermaidCreatorTest.csproj", "{1D81B27C-E93E-4E2B-92A6-0CC88108534C}"
-	ProjectSection(ProjectDependencies) = postProject
-		{7DDD8442-96C7-4DC7-AAE5-86AFA4B66A1D} = {7DDD8442-96C7-4DC7-AAE5-86AFA4B66A1D}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.Json.Serialization;
+using System.Text.Json;
 using System.Threading.Tasks;
 using MermaidCreator;
 using MermaidCreator.Model;
@@ -17,8 +17,8 @@ public class ReaderTest
     {
         Reader readerInput = new Reader();
         ClassManager ClassManagerInput = readerInput.AnalyzeFile(input);
-        ClassManager ClassManagerOutput = IJsonOnDeserializing
-
-        Assert.Equal(input, output);
+        ClassManager ClassManagerOutput = JsonSerializer.Deserialize<ClassManager>(output);
+        
+        Assert.Equal(ClassManagerInput, ClassManagerOutput);
     }
 }

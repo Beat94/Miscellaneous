@@ -24,4 +24,8 @@
     <Folder Include="Testdata\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MermaidCreator\MermaidCreator.csproj" />
+  </ItemGroup>
+
 </Project>
