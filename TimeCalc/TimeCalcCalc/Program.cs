@@ -16,7 +16,6 @@ class Program
     public static void Main(string[] args)
     {
         int pointer = 0;
-        Console.WriteLine("HelloWelt");
         logging.newEntry(LogType.Info, "Started Application");
 
         // Load Config
