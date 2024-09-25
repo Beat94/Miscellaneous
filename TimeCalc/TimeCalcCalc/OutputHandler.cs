@@ -33,10 +33,10 @@ public class OutputHandler
 
             for(int i = 0; i < stringSizeMax; i++)
             {
-                outFile += "\t\t";
+                outFile += "\t\t\t\t";
             }
 
-            output +=  outputOut.Filename + "\t" + outFile + "\t" + outputOut.Time.ToString() + "\n";
+            output +=  outputOut.Filename + "\t" + outFile + "\t\t" + outputOut.Time.ToString() + "\n";
         }
 
         return output;
