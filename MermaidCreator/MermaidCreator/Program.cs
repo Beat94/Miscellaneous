@@ -13,11 +13,28 @@ public class Program
         Configuration = Toolbox.loadConfigModule();
 
         Console.WriteLine("Hallo Welt");
+        string ConfigTestMode = "";
+
+        try
+        {
+            ConfigTestMode = Configuration["Testmode"] ?? "false";
+        }
+        catch (Exception ex)
+        {
+            _ = ex;
+        }
 
         // if Testmode then use following two commands
-        confTest();
+        if (ConfigTestMode.Equals("true", StringComparison.InvariantCultureIgnoreCase))
+        { 
+            confTest();
 
-        cmTest();
+            cmTest();
+        }
+        else
+        {
+            Console.WriteLine($"Ths is Testmode {ConfigTestMode}");
+        }
     }
 
     public static void confTest()
@@ -26,6 +43,7 @@ public class Program
             && !Configuration["Folder"].Equals(null))
         {
             Console.WriteLine($"Folder: {Configuration["Folder"]}");
+            Console.WriteLine($"Testmode: {Configuration["Testmode"]}");
         }
     }
 
