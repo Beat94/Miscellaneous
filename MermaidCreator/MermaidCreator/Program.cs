@@ -13,6 +13,8 @@ public class Program
         Configuration = Toolbox.loadConfigModule();
 
         Console.WriteLine("Hallo Welt");
+
+        // if Testmode then use following two commands
         confTest();
 
         cmTest();

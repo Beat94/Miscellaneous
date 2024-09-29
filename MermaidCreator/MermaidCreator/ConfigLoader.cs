@@ -62,15 +62,4 @@ internal class ConfigLoader
     { 
         return config.GetSection(section);
     }
-
-    /*
-    public void cl()
-    {
-        var builder = new ConfigurationBuilder();
-
-        IConfiguration config = builder.Build();
-
-        var appSettings = config.GetSection<AppSettings>();
-    }
-    */
 }
