@@ -14,4 +14,10 @@ internal class Toolbox
         ConfigLoader configLoader = new();
         return configLoader.loadConfig();
     }
+
+    public static IConfiguration loadConfigModule(string? link, string[]? args)
+    {
+        ConfigLoader configLoader = new();
+        return configLoader.loadConfig(link, args);
+    }
 }

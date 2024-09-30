@@ -10,10 +10,10 @@ public class Program
 
     public static void Main(string[] args)
     {
-        Configuration = Toolbox.loadConfigModule();
+        Configuration = Toolbox.loadConfigModule(null, args);
 
         Console.WriteLine("Hallo Welt");
-        string ConfigTestMode = "";
+        string ConfigTestMode = "false";
 
         try
         {
@@ -33,13 +33,14 @@ public class Program
         }
         else
         {
-            Console.WriteLine($"Ths is Testmode {ConfigTestMode}");
+            Console.WriteLine($"This is Testmode {ConfigTestMode}");
         }
     }
 
     public static void confTest()
     {
-        if (Configuration != null 
+        if (
+            Configuration != null 
             && !Configuration["Folder"].Equals(null))
         {
             Console.WriteLine($"Folder: {Configuration["Folder"]}");

@@ -31,9 +31,9 @@ internal class ConfigLoader
             {
                 linkConfig = args.FirstOrDefault();
             }
-            if (this.link != null)
+            else if (this.link != null)
             {
-                linkConfig = link;
+                throw new NullReferenceException();
             }
         }
         catch (Exception ex)
