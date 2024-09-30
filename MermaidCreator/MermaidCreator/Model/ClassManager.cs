@@ -5,6 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MermaidCreator.Model;
+
+/// <summary>
+/// A helper class to list classes and their relationship
+/// </summary>
 public class ClassManager
 {
     public string DiagramName { get; set; }

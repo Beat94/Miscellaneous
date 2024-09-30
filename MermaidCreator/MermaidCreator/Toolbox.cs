@@ -15,7 +15,13 @@ internal class Toolbox
         return configLoader.loadConfig();
     }
 
-    public static IConfiguration loadConfigModule(string? link, string[]? args)
+    /// <summary>
+    /// Load Config with link or start-values
+    /// </summary>
+    /// <param name="link"></param>
+    /// <param name="args"></param>
+    /// <returns>IConfiguraiton</returns>
+    public static IConfiguration LoadConfigModule(string? link, string[]? args)
     {
         ConfigLoader configLoader = new();
         return configLoader.loadConfig(link, args);

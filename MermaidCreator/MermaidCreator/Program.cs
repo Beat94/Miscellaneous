@@ -10,7 +10,7 @@ public class Program
 
     public static void Main(string[] args)
     {
-        Configuration = Toolbox.loadConfigModule(null, args);
+        Configuration = Toolbox.LoadConfigModule(null, args);
 
         Console.WriteLine("Hallo Welt");
         string ConfigTestMode = "false";
@@ -29,7 +29,7 @@ public class Program
         { 
             confTest();
 
-            cmTest();
+            CmTest();
         }
         else
         {
@@ -37,6 +37,9 @@ public class Program
         }
     }
 
+    /// <summary>
+    /// Lists configuration values - loaded of config-file
+    /// </summary>
     public static void confTest()
     {
         if (
@@ -48,7 +51,10 @@ public class Program
         }
     }
 
-    public static void cmTest()
+    /// <summary>
+    /// Test of classmanager -> output to cli
+    /// </summary>
+    public static void CmTest()
     {
         ClassManager cm = new()
         { 
