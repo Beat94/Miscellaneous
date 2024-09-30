@@ -9,7 +9,7 @@ namespace MermaidCreator;
 
 internal class Toolbox
 {
-    public static IConfiguration loadConfigModule()
+    public static IConfiguration LoadConfigModule()
     {
         ConfigLoader configLoader = new();
         return configLoader.loadConfig();
@@ -20,7 +20,7 @@ internal class Toolbox
     /// </summary>
     /// <param name="link"></param>
     /// <param name="args"></param>
-    /// <returns>IConfiguraiton</returns>
+    /// <returns>IConfiguration</returns>
     public static IConfiguration LoadConfigModule(string? link, string[]? args)
     {
         ConfigLoader configLoader = new();
