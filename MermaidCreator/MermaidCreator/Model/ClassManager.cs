@@ -15,6 +15,10 @@ public class ClassManager
     public IList<ClassConstructor> Classes = new List<ClassConstructor>();
     public IList<ClassRelationship> ClassRelationships = new List<ClassRelationship>();
 
+    /// <summary>
+    /// Adds Classmanager into anoter ClassManager
+    /// </summary>
+    /// <param name="ClassmanagerInput">
     public void AddClassManage(ClassManager ClassManagerInput)
     {
         foreach(ClassConstructor Klasse in ClassManagerInput.Classes)
