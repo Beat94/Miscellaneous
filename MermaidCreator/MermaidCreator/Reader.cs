@@ -21,10 +21,10 @@ public class Reader
             {
                 // https://learn.microsoft.com/en-us/dotnet/standard/io/how-to-read-text-from-a-file
                 using StreamReader reader = new(file);
-
                 string text = reader.ReadToEnd();
-
                 Console.Write(text);
+
+                AnalyzeFile(text);
             }
             catch (IOException e)
             {
