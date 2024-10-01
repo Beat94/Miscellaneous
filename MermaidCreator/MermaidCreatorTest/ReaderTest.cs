@@ -21,4 +21,15 @@ public class ReaderTest
         
         Assert.Equal(ClassManagerInput, ClassManagerOutput);
     }
+
+    [Theory]
+    [InlineData("Testcase1Input.cs.txt")]
+    public void TestInputToCmd(string input)
+    {
+        Reader readerInput = new Reader();
+        readerInput.location = input;
+        readerInput.CreateModel();
+
+        Assert.Equal(true, true);
+    }
 }

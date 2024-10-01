@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MermaidCreator.Model;
 
+/// <summary>
+/// Class to describe variable of a found class
+/// </summary>
 public class ClassVariable : Option
 {
     public string varType { get; set; }
