@@ -52,7 +52,7 @@ public class Program
     }
 
     /// <summary>
-    /// Test of classmanager -> output to cli
+    /// Test of classmanager -> with direct output to cli
     /// </summary>
     public static void CmTest()
     {
