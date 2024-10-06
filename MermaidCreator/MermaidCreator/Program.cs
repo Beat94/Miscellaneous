@@ -90,4 +90,15 @@ public class Program
 
         Console.WriteLine(ex.CreateClassdiagram(cm));
     }
+
+    /// <summary>
+    /// Festfunction planned are multiple tests<br/>
+    /// Modes:<br/>
+    /// 0: ??
+    /// </summary>
+    /// <param name="mode"></param>
+    public static void MultiTestfunction(int mode)
+    { 
+    
+    }
 }
