@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MermaidCreator.Model;
 
+/// <summary>
+/// This class shows the relationship between classes of analzysed project
+/// </summary>
 public class ClassRelationship
 {
     public ClassConstructor Class1 { get; set; }

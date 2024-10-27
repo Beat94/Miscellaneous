@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MermaidCreator.Model;
 
+/// <summary>
+/// Used to show class
+/// </summary>
 public class ClassConstructor
 {
     public string ClassName { get; set; }
