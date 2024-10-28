@@ -3,20 +3,28 @@ using Newtonsoft.Json.Linq;
 
 namespace Application;
 
-internal class Sys1 : IJsonSystem
+public class Sys1 : IJsonSystem
 {
     internal Guid lolz()
     { 
         return Guid.NewGuid();
     }
 
-    internal JObject SetNewGuids(JObject input, string[] valuesToChange)
+    public JObject SetNewGuids(JObject input, string[] valuesToChange)
     {
         // should go through valuesToChange and set new Guids
         foreach (string value in valuesToChange)
-        { 
-            //input.
+        {
+            try
+            {
+                
+            }
+            catch (Exception ex)
+            { 
+                
+            }
         }
-        throw new NotImplementedException();
+
+        return input;
     }
 }

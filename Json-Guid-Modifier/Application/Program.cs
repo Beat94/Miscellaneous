@@ -8,7 +8,7 @@ internal class Program
     { 
         Sys1 sys = new Sys1();
 
-        sys.SetNewGuids(new JObject());
+        sys.SetNewGuids(new JObject(), ["asdf", "asdf"]);
 
         Console.WriteLine("Hello, World 2!");
         Console.WriteLine($"Automatic randomized GUID: {sys.lolz().ToString()}");

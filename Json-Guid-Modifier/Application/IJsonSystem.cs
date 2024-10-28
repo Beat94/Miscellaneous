@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Application;
 
-internal interface IJsonSystem
+public interface IJsonSystem
 {
-    internal JObject SetNewGuids(JObject input, string[] valuesToChange);
+    public JObject SetNewGuids(JObject input, string[] valuesToChange);
 }
