@@ -12,12 +12,13 @@ public class Program
     {
         Configuration = Toolbox.LoadConfigModule(null, args);
 
+        ReflectionHelper reflectionHelp = new();
         Console.WriteLine("Hallo Welt");
-        string ConfigTestMode = "false";
+        string ConfigTestMode = "true";
 
         try
         {
-            ConfigTestMode = Configuration["Testmode"] ?? "false";
+            ConfigTestMode ??= Configuration["Testmode"] ?? "false";
         }
         catch (Exception ex)
         {
@@ -30,6 +31,8 @@ public class Program
             confTest();
 
             CmTest();
+
+            _ = reflectionHelp.SelfReflection();
         }
         else
         {
