@@ -32,7 +32,23 @@ internal class ReflectionHelper
             foreach (MethodInfo method in methods)
             {
                 Console.WriteLine(method.Name);
-                method.
+                
+            }
+            Console.WriteLine("----");
+            
+        }
+
+        Console.WriteLine("====\nPrivate BindingFlag\n====");
+
+        foreach (Type classtype in classtypesname)
+        {
+            Console.WriteLine(classtype.Name);
+
+            MethodInfo[] privateMethods = classtype.GetMethods(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
+            foreach (MethodInfo privateMethod in privateMethods)
+            {
+                Console.WriteLine(privateMethod.Name);
+
             }
             Console.WriteLine("----");
         }
