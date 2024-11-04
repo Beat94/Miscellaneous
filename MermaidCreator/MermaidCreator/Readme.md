@@ -14,7 +14,7 @@ https://mermaid.js.org/syntax/classDiagram.html
 - ~~add IConfiguration~~
 - fix issue with configuration
 - implement reader-class
-- Change Configuration(loadin) in Program.cs to toolbox-function
+- Change Configuration(loading) in Program.cs to toolbox-function
 
 # Use Cases
 - One class in one file  

@@ -24,34 +24,11 @@ internal class ReflectionHelper
 
         Type[] classtypesname = GetTypesOfAssembly(CurrentAssembly);
 
-        foreach (Type classtype in classtypesname)
-        { 
-            Console.WriteLine(classtype.Name);
-            
-            MethodInfo[] methods = classtype.GetMethods();
-            foreach (MethodInfo method in methods)
-            {
-                Console.WriteLine(method.Name);
-                
-            }
-            Console.WriteLine("----");
-            
-        }
+        getClassesAndFunctions(classtypesname, BindingFlags.NonPublic | BindingFlags.Instance);
 
-        Console.WriteLine("====\nPrivate BindingFlag\n====");
+        Console.WriteLine("====\nPrivate BindingFlag | And Public \n====");
 
-        foreach (Type classtype in classtypesname)
-        {
-            Console.WriteLine(classtype.Name);
-
-            MethodInfo[] privateMethods = classtype.GetMethods(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
-            foreach (MethodInfo privateMethod in privateMethods)
-            {
-                Console.WriteLine(privateMethod.Name);
-
-            }
-            Console.WriteLine("----");
-        }
+        getClassesAndFunctions(classtypesname, BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
 
         return new ClassManager();
     }
@@ -59,5 +36,21 @@ internal class ReflectionHelper
     internal Type[] GetTypesOfAssembly(Assembly inputAssembly)
     {
         return inputAssembly.GetTypes();
+    }
+
+    internal void getClassesAndFunctions(Type[] input, BindingFlags bindingFlag)
+    {
+        foreach (Type classtype in input)
+        {
+            Console.WriteLine(classtype.Name);
+
+            MethodInfo[] privateMethods = classtype.GetMethods(bindingFlag);
+            foreach (MethodInfo privateMethod in privateMethods)
+            {
+                Console.WriteLine(privateMethod.Name);
+
+            }
+            Console.WriteLine("----");
+        }
     }
 }
