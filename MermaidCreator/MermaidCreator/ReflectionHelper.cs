@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Reflection;
 using MermaidCreator.Model;
 using System.Runtime.InteropServices;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Net.NetworkInformation;
 
 namespace MermaidCreator;
 
@@ -24,21 +26,22 @@ internal class ReflectionHelper
 
         Type[] classtypesname = GetTypesOfAssembly(CurrentAssembly);
 
-        getClassesAndFunctions(classtypesname, BindingFlags.NonPublic | BindingFlags.Instance);
+        getClassesAndFunctions(classtypesname, BindingFlags.NonPublic | BindingFlags.Instance, true);
 
         Console.WriteLine("====\nPrivate BindingFlag | And Public \n====");
 
-        getClassesAndFunctions(classtypesname, BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
+        getClassesAndFunctions(classtypesname, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance, true);
 
         return new ClassManager();
     }
 
     internal Type[] GetTypesOfAssembly(Assembly inputAssembly)
     {
+
         return inputAssembly.GetTypes();
     }
 
-    internal void getClassesAndFunctions(Type[] input, BindingFlags bindingFlag)
+    internal void getClassesAndFunctions(Type[] input, BindingFlags bindingFlag, bool withoutGetSet)
     {
         foreach (Type classtype in input)
         {
@@ -47,7 +50,25 @@ internal class ReflectionHelper
             MethodInfo[] privateMethods = classtype.GetMethods(bindingFlag);
             foreach (MethodInfo privateMethod in privateMethods)
             {
-                Console.WriteLine(privateMethod.Name);
+                if (withoutGetSet)
+                {
+                    if (
+                        !privateMethod.Name.StartsWith("get_") 
+                        && !privateMethod.Name.StartsWith("set_")
+                        && !privateMethod.Name.Equals("GetType")
+                        && !privateMethod.Name.Equals("MemberwiseClone")
+                        && !privateMethod.Name.Equals("Finalize")
+                        && !privateMethod.Name.Equals("ToString")
+                        && !privateMethod.Name.Equals("Equals")
+                        && !privateMethod.Name.Equals("GetHashCode"))
+                    {
+                        Console.WriteLine(privateMethod.Name);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine(privateMethod.Name);
+                }
 
             }
             Console.WriteLine("----");
