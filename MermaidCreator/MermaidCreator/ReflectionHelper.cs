@@ -55,6 +55,7 @@ internal class ReflectionHelper
                     if (
                         !privateMethod.Name.StartsWith("get_") 
                         && !privateMethod.Name.StartsWith("set_")
+                        && !privateMethod.Name.StartsWith("System.")
                         && !privateMethod.Name.Equals("GetType")
                         && !privateMethod.Name.Equals("MemberwiseClone")
                         && !privateMethod.Name.Equals("Finalize")
@@ -62,7 +63,34 @@ internal class ReflectionHelper
                         && !privateMethod.Name.Equals("Equals")
                         && !privateMethod.Name.Equals("GetHashCode"))
                     {
-                        Console.WriteLine(privateMethod.Name);
+                        List<string> flags = new List<string>();
+
+                        if (privateMethod.IsPublic)
+                        {
+                            flags.Add("Public");
+                        }
+
+                        if (privateMethod.IsPrivate)
+                        {
+                            flags.Add("Private");
+                        }
+
+                        if (privateMethod.IsFamily)
+                        {
+                            flags.Add("Protected");
+                        }
+
+                        if (privateMethod.IsAssembly)
+                        {
+                            flags.Add("Internal");
+                        }
+
+                        foreach (string flag in flags)
+                        {
+                            Console.Write($"{flag} ");
+                        }
+
+                        Console.WriteLine($"{privateMethod.Name}");
                     }
                 }
                 else
