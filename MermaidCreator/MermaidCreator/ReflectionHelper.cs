@@ -63,27 +63,7 @@ internal class ReflectionHelper
                         && !privateMethod.Name.Equals("Equals")
                         && !privateMethod.Name.Equals("GetHashCode"))
                     {
-                        List<string> flags = new List<string>();
-
-                        if (privateMethod.IsPublic)
-                        {
-                            flags.Add("Public");
-                        }
-
-                        if (privateMethod.IsPrivate)
-                        {
-                            flags.Add("Private");
-                        }
-
-                        if (privateMethod.IsFamily)
-                        {
-                            flags.Add("Protected");
-                        }
-
-                        if (privateMethod.IsAssembly)
-                        {
-                            flags.Add("Internal");
-                        }
+                        List<string> flags = getPermissionsOfMember(privateMethod);
 
                         foreach (string flag in flags)
                         {
@@ -101,5 +81,32 @@ internal class ReflectionHelper
             }
             Console.WriteLine("----");
         }
+    }
+
+    internal List<string> getPermissionsOfMember(MethodBase input)
+    {
+        List<string> permissions = new List<string>();
+
+        if (input.IsPublic)
+        {
+            permissions.Add("Public");
+        }
+
+        if (input.IsPrivate)
+        {
+            permissions.Add("Private");
+        }
+
+        if (input.IsFamily)
+        {
+            permissions.Add("Protected");
+        }
+
+        if (input.IsAssembly)
+        {
+            permissions.Add("Internal");
+        }
+
+        return permissions;
     }
 }
