@@ -47,6 +47,8 @@ internal class ReflectionHelper
         {
             Console.WriteLine(classtype.Name);
 
+            // add Variables and Parameter Analyzation
+
             MethodInfo[] privateMethods = classtype.GetMethods(bindingFlag);
             foreach (MethodInfo privateMethod in privateMethods)
             {
@@ -71,6 +73,7 @@ internal class ReflectionHelper
                         }
 
                         Console.WriteLine($"{privateMethod.Name}");
+
                     }
                 }
                 else
