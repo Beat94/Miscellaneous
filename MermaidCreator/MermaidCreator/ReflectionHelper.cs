@@ -50,8 +50,24 @@ internal class ReflectionHelper
             // add Property and Field Analyzation
             PropertyInfo[] properties = classtype.GetProperties(bindingFlag);
             FieldInfo[] fields =  classtype.GetFields(bindingFlag);
-
             MethodInfo[] privateMethods = classtype.GetMethods(bindingFlag);
+
+            // TODO
+            foreach (PropertyInfo property in properties)
+            {
+                Console.WriteLine(property.Name);
+            }
+
+            foreach (FieldInfo field in fields)
+            {
+                foreach (string perm in getPermissionsOfFieldInfo(field))
+                {
+                    Console.Write($"{perm} ");
+                }
+
+                Console.WriteLine($"{field.Name}");
+            }
+
             foreach (MethodInfo privateMethod in privateMethods)
             {
                 if (withoutGetSet)
@@ -87,29 +103,28 @@ internal class ReflectionHelper
             Console.WriteLine("----");
         }
     }
-
-    internal List<string> getPermissionsOfMemberInfo(MemberInfo member)
+    
+    internal List<string> getPermissionsOfFieldInfo(FieldInfo fieldInfoInput)
     { 
         List<string> permissions = new List<string>();
 
-        member.
 
-        if (member.IsPublic)
+        if (fieldInfoInput.IsPublic)
         {
             permissions.Add("Public");
         }
 
-        if (member.IsPrivate)
+        if (fieldInfoInput.IsPrivate)
         {
             permissions.Add("Private");
         }
 
-        if (member.IsFamily)
+        if (fieldInfoInput.IsFamily)
         {
             permissions.Add("Protected");
         }
 
-        if (member.IsAssembly)
+        if (fieldInfoInput.IsAssembly)
         {
             permissions.Add("Internal");
         }
