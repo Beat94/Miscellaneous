@@ -47,7 +47,9 @@ internal class ReflectionHelper
         {
             Console.WriteLine(classtype.Name);
 
-            // add Variables and Parameter Analyzation
+            // add Property and Field Analyzation
+            PropertyInfo[] properties = classtype.GetProperties(bindingFlag);
+            FieldInfo[] fields =  classtype.GetFields(bindingFlag);
 
             MethodInfo[] privateMethods = classtype.GetMethods(bindingFlag);
             foreach (MethodInfo privateMethod in privateMethods)
@@ -84,6 +86,35 @@ internal class ReflectionHelper
             }
             Console.WriteLine("----");
         }
+    }
+
+    internal List<string> getPermissionsOfMemberInfo(MemberInfo member)
+    { 
+        List<string> permissions = new List<string>();
+
+        member.
+
+        if (member.IsPublic)
+        {
+            permissions.Add("Public");
+        }
+
+        if (member.IsPrivate)
+        {
+            permissions.Add("Private");
+        }
+
+        if (member.IsFamily)
+        {
+            permissions.Add("Protected");
+        }
+
+        if (member.IsAssembly)
+        {
+            permissions.Add("Internal");
+        }
+
+        return permissions;
     }
 
     internal List<string> getPermissionsOfMember(MethodBase input)
