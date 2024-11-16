@@ -17,7 +17,7 @@ namespace MermaidCreator;
 internal class ReflectionHelper
 {
     /// <summary>
-    /// used to create class-diagram of this project using reflection
+    /// Used to create class-diagram of this project using reflection
     /// </summary>
     internal ClassManager SelfReflection()
     {
@@ -35,13 +35,9 @@ internal class ReflectionHelper
         return new ClassManager();
     }
 
-    internal Type[] GetTypesOfAssembly(Assembly inputAssembly)
-    {
+    internal Type[] GetTypesOfAssembly(Assembly inputAssembly) => inputAssembly.GetTypes();
 
-        return inputAssembly.GetTypes();
-    }
-
-    internal void getClassesAndFunctions(Type[] input, BindingFlags bindingFlag, bool withoutGetSet)
+    internal List<ClassConstructor> getClassesAndFunctions(Type[] input, BindingFlags bindingFlag, bool withoutGetSet)
     {
         foreach (Type classtype in input)
         {
@@ -102,6 +98,8 @@ internal class ReflectionHelper
             }
             Console.WriteLine("----");
         }
+
+        return new List<ClassConstructor>();
     }
     
     internal List<string> getPermissionsOfFieldInfo(FieldInfo fieldInfoInput)
