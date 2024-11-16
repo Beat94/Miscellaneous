@@ -8,6 +8,7 @@ using MermaidCreator.Model;
 using System.Runtime.InteropServices;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Net.NetworkInformation;
+using System.Diagnostics.Contracts;
 
 namespace MermaidCreator;
 
@@ -39,19 +40,30 @@ internal class ReflectionHelper
 
     internal List<ClassConstructor> getClassesAndFunctions(Type[] input, BindingFlags bindingFlag, bool withoutGetSet)
     {
+        List<ClassConstructor> ClassConstrutorList = new();
+
         foreach (Type classtype in input)
         {
+            ClassConstructor classConstrutor = new()
+            {
+                ClassName = classtype.Name
+            };
+
             Console.WriteLine(classtype.Name);
 
             // add Property and Field Analyzation
             PropertyInfo[] properties = classtype.GetProperties(bindingFlag);
             FieldInfo[] fields =  classtype.GetFields(bindingFlag);
+
             MethodInfo[] privateMethods = classtype.GetMethods(bindingFlag);
 
             // TODO
             foreach (PropertyInfo property in properties)
             {
+                ClassVariable classVariable = new ClassVariable();
+
                 Console.WriteLine(property.Name);
+                classConstrutor.Variables.Add(new ClassVariable() { Name = property.Name });
             }
 
             foreach (FieldInfo field in fields)
