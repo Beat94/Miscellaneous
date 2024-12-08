@@ -81,6 +81,7 @@ internal class ReflectionHelper
             {
                 if (withoutGetSet)
                 {
+                    // Idea: Flag for look at Getter and Setter
                     if (
                         !privateMethod.Name.StartsWith("get_") 
                         && !privateMethod.Name.StartsWith("set_")
