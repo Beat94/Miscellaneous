@@ -11,7 +11,12 @@ namespace MermaidCreator.Model;
 /// </summary>
 public class ClassVariable : Option
 {
-    public required string varType { get; set; }
+    public string varType;
+
+    public ClassVariable(string varType)
+    {
+        this.varType = varType;
+    }
 
     public string getVariablename() => base.Name;
 

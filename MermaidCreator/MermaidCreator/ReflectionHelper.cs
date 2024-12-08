@@ -27,18 +27,18 @@ internal class ReflectionHelper
 
         Type[] classtypesname = GetTypesOfAssembly(CurrentAssembly);
 
-        getClassesAndFunctions(classtypesname, BindingFlags.NonPublic | BindingFlags.Instance, true);
+        GetClassesAndFunctions(classtypesname, BindingFlags.NonPublic | BindingFlags.Instance, true);
 
         Console.WriteLine("====\nPrivate BindingFlag | And Public \n====");
 
-        getClassesAndFunctions(classtypesname, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance, true);
+        GetClassesAndFunctions(classtypesname, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance, true);
 
         return new ClassManager();
     }
 
     internal Type[] GetTypesOfAssembly(Assembly inputAssembly) => inputAssembly.GetTypes();
 
-    internal List<ClassConstructor> getClassesAndFunctions(Type[] input, BindingFlags bindingFlag, bool withoutGetSet)
+    internal List<ClassConstructor> GetClassesAndFunctions(Type[] input, BindingFlags bindingFlag, bool withoutGetSet)
     {
         List<ClassConstructor> ClassConstrutorList = new();
 
@@ -57,13 +57,14 @@ internal class ReflectionHelper
 
             MethodInfo[] privateMethods = classtype.GetMethods(bindingFlag);
 
+
             // TODO
             foreach (PropertyInfo property in properties)
             {
-                ClassVariable classVariable = new ClassVariable();
+                ClassVariable classVariable = new(property.Name);
 
                 Console.WriteLine(property.Name);
-                classConstrutor.Variables.Add(new ClassVariable() { Name = property.Name });
+                classConstrutor.Variables.Add(classVariable);
             }
 
             foreach (FieldInfo field in fields)
