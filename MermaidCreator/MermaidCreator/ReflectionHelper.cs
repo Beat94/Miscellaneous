@@ -54,7 +54,6 @@ internal class ReflectionHelper
             // add Property and Field Analyzation
             PropertyInfo[] properties = classtype.GetProperties(bindingFlag);
             FieldInfo[] fields =  classtype.GetFields(bindingFlag);
-
             MethodInfo[] privateMethods = classtype.GetMethods(bindingFlag);
 
 
