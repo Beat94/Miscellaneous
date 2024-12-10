@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace MermaidCreator.Model;
 
 /// <summary>
-/// Used to show class
+/// Used to show class. Lists functions and Variables of a function
 /// </summary>
 public class ClassConstructor
 {
