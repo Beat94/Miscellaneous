@@ -18,7 +18,7 @@ internal class Toolbox
     /// <summary>
     /// Load Config with link or start-values
     /// </summary>
-    /// <param name="link"></param>
+    /// <param name="link">Link to load configuration</param>
     /// <param name="args"></param>
     /// <returns>IConfiguration</returns>
     public static IConfiguration LoadConfigModule(string? link, string[]? args)

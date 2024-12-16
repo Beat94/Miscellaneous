@@ -22,6 +22,7 @@ public class ReaderTest
         Assert.Equal(ClassManagerInput, ClassManagerOutput);
     }
 
+    // not used anymore?
     [Theory]
     [InlineData("Testcase1Input.cs.txt", "TestcaseOutput.json")]
     public void TestInputToCmd(string input, string output)

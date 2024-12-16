@@ -21,7 +21,7 @@ internal class ConfigLoader
     /// <summary>
     /// Loads configfile in the defined Link over first or second parameter
     /// </summary>
-    /// <param name="link"></param>
+    /// <param name="link">Link to configFile</param>
     /// <param name="args"></param>
     /// <returns></returns>
     internal IConfiguration loadConfig(string? link, string[]? args)

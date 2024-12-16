@@ -22,6 +22,8 @@ internal class ReflectionHelper
     /// </summary>
     internal ClassManager SelfReflection()
     {
+        ClassManager classManOut = new();
+
         // https://medium.com/technology-nineleaps/reflection-in-net-a-comprehensive-guide-for-application-development-66841aa6f4b1
         Assembly CurrentAssembly = Assembly.GetExecutingAssembly();
 
@@ -33,7 +35,7 @@ internal class ReflectionHelper
 
         GetClassesAndFunctions(classtypesname, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance, true);
 
-        return new ClassManager();
+        return classManOut;
     }
 
     internal Type[] GetTypesOfAssembly(Assembly inputAssembly) => inputAssembly.GetTypes();

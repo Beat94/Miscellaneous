@@ -66,11 +66,11 @@ public class Program
 
         ClassConstructor cc = new() { ClassName = "lul" };
         ClassFunction cf = new() { Name = "getter", accessModifier = AccessModifier.general };
-        ClassVariable cv = new() { Name = "Name", varType = "String", accessModifier = AccessModifier.privat };
+        ClassVariable cv = new ClassVariable("String") { Name = "Name", accessModifier = AccessModifier.privat };
 
         ClassConstructor cc2 = new() { ClassName = "lul2" };
         ClassFunction cf2 = new() { Name = "getter", accessModifier = AccessModifier.general };
-        ClassVariable cv2 = new() { Name = "Name", varType = "String", accessModifier = AccessModifier.privat };
+        ClassVariable cv2 = new ClassVariable("String") { Name = "Name", accessModifier = AccessModifier.privat };
 
         ClassRelationship cr = new()
         {
