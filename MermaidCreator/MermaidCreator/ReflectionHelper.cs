@@ -26,14 +26,11 @@ internal class ReflectionHelper
 
         // https://medium.com/technology-nineleaps/reflection-in-net-a-comprehensive-guide-for-application-development-66841aa6f4b1
         Assembly CurrentAssembly = Assembly.GetExecutingAssembly();
-
         Type[] classtypesname = GetTypesOfAssembly(CurrentAssembly);
+        List<ClassConstructor> cAndF = GetClassesAndFunctions(classtypesname, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance, true);
 
-        GetClassesAndFunctions(classtypesname, BindingFlags.NonPublic | BindingFlags.Instance, true);
-
-        Console.WriteLine("====\nPrivate BindingFlag | And Public \n====");
-
-        GetClassesAndFunctions(classtypesname, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance, true);
+        classManOut.DiagramName = "TestDiagram";
+        classManOut.Classes = cAndF;
 
         return classManOut;
     }
@@ -46,17 +43,14 @@ internal class ReflectionHelper
 
         foreach (Type classtype in input)
         {
-            ClassConstructor classConstrutor = new()
-            {
-                ClassName = classtype.Name
-            };
+            ClassConstructor classConstructor = new(classtype.Name);
 
             Console.WriteLine(classtype.Name);
 
             // add Property and Field Analyzation
-            PropertyInfo[] properties = classtype.GetProperties(bindingFlag);
-            FieldInfo[] fields =  classtype.GetFields(bindingFlag);
-            MethodInfo[] privateMethods = classtype.GetMethods(bindingFlag);
+            PropertyInfo[] properties = classtype.GetProperties(bindingFlag); // Variable
+            FieldInfo[] fields =  classtype.GetFields(bindingFlag); // Variable
+            MethodInfo[] privateMethods = classtype.GetMethods(bindingFlag); // Method
 
 
             // TODO
@@ -65,17 +59,21 @@ internal class ReflectionHelper
                 ClassVariable classVariable = new(property.Name);
 
                 Console.WriteLine(property.Name);
-                classConstrutor.Variables.Add(classVariable);
+                classConstructor.Variables.Add(classVariable);
             }
 
             foreach (FieldInfo field in fields)
             {
+                ClassVariable classVariable = new(field.Name);
+
                 foreach (string perm in getPermissionsOfFieldInfo(field))
                 {
                     Console.Write($"{perm} ");
+                    classVariable.accessModifier = (AccessModifier)getPermissionOfFieldInfo(field);
                 }
 
                 Console.WriteLine($"{field.Name}");
+                classConstructor.Variables.Add(classVariable);
             }
 
             foreach (MethodInfo privateMethod in privateMethods)
@@ -83,6 +81,7 @@ internal class ReflectionHelper
                 if (withoutGetSet)
                 {
                     // Idea: Flag for look at Getter and Setter
+                    // ToDo: add Variable to ouput-Variable
                     if (
                         !privateMethod.Name.StartsWith("get_") 
                         && !privateMethod.Name.StartsWith("set_")
@@ -94,8 +93,11 @@ internal class ReflectionHelper
                         && !privateMethod.Name.Equals("Equals")
                         && !privateMethod.Name.Equals("GetHashCode"))
                     {
-                        List<string> flags = getPermissionsOfMember(privateMethod);
+                        ClassFunction cf = new();
 
+                        // in case of multipe flags write flag directly on line and in the end mothodname
+                        // from here to console.writeline after foreach-loop could be deleted
+                        List<string> flags = getPermissionsOfMember(privateMethod);
                         foreach (string flag in flags)
                         {
                             Console.Write($"{flag} ");
@@ -103,6 +105,10 @@ internal class ReflectionHelper
 
                         Console.WriteLine($"{privateMethod.Name}");
 
+                        cf.Name = privateMethod.Name;
+                        cf.accessModifier = getPermissionsOfMemberAccessmodifier(privateMethod);
+                        // add method to output
+                        classConstructor.Functions.Add(cf);
                     }
                 }
                 else
@@ -116,7 +122,32 @@ internal class ReflectionHelper
 
         return new List<ClassConstructor>();
     }
-    
+
+    internal AccessModifier getPermissionOfFieldInfo(FieldInfo fieldInfoInput)
+    {
+        if (fieldInfoInput.IsPublic)
+        {
+            return AccessModifier.general;
+        }
+
+        if (fieldInfoInput.IsPrivate)
+        {
+            return AccessModifier.privat;
+        }
+
+        if (fieldInfoInput.IsFamily)
+        {
+            return AccessModifier.intern;
+        }
+
+        if (fieldInfoInput.IsAssembly)
+        {
+            return AccessModifier.secured;
+        }
+
+        return AccessModifier.intern;
+    }
+
     internal List<string> getPermissionsOfFieldInfo(FieldInfo fieldInfoInput)
     { 
         List<string> permissions = new List<string>();
@@ -143,6 +174,31 @@ internal class ReflectionHelper
         }
 
         return permissions;
+    }
+
+    internal AccessModifier getPermissionsOfMemberAccessmodifier(MethodBase input)
+    { 
+        if (input.IsPublic)
+        {
+            return AccessModifier.general;
+        }
+
+        if (input.IsPrivate)
+        {
+            return AccessModifier.privat;
+        }
+
+        if (input.IsFamily)
+        {
+            return AccessModifier.intern;
+        }
+
+        if (input.IsAssembly)
+        {
+            return AccessModifier.secured;
+        }
+
+        return AccessModifier.intern;
     }
 
     internal List<string> getPermissionsOfMember(MethodBase input)

@@ -32,7 +32,7 @@ public class Program
 
             CmTest();
 
-            _ = reflectionHelp.SelfReflection();
+            ClassManager selfReflectionClasses = reflectionHelp.SelfReflection();
         }
         else
         {
@@ -64,11 +64,11 @@ public class Program
             DiagramName = "Test Diagramm"
         };
 
-        ClassConstructor cc = new() { ClassName = "lul" };
+        ClassConstructor cc = new("lul");
         ClassFunction cf = new() { Name = "getter", accessModifier = AccessModifier.general };
         ClassVariable cv = new ClassVariable("String") { Name = "Name", accessModifier = AccessModifier.privat };
 
-        ClassConstructor cc2 = new() { ClassName = "lul2" };
+        ClassConstructor cc2 = new("lul2");
         ClassFunction cf2 = new() { Name = "getter", accessModifier = AccessModifier.general };
         ClassVariable cv2 = new ClassVariable("String") { Name = "Name", accessModifier = AccessModifier.privat };
 
