@@ -33,6 +33,9 @@ public class Program
             CmTest();
 
             ClassManager selfReflectionClasses = reflectionHelp.SelfReflection();
+            Export ex = new();
+
+            Console.WriteLine(ex.CreateClassdiagram(selfReflectionClasses));
         }
         else
         {
