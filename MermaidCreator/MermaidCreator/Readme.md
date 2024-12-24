@@ -12,10 +12,12 @@ https://mermaid.js.org/syntax/classDiagram.html
 
 # toDo
 - ~~add IConfiguration~~
+- ~~implement reader-class~~
+- ~~Change Configuration(loading) in Program.cs to toolbox-function~~
 - fix issue with configuration
-- implement reader-class
 
 # Use Cases
+- ~~Configuration via IConfigration~~
 - One class in one file  
 - Multiple classes in one file  
 - One function in one class  
@@ -23,7 +25,6 @@ https://mermaid.js.org/syntax/classDiagram.html
 - Partial class over multiple files  
 - Inheritance  
 - Global variables in class  
-- ~~Configuration via IConfigration~~
 - Connection of classes (Association, Dependency, Aggregation, Composition, Interitance, Realisation)  
 - Load Configuration (Usage of IConfiguration)  
 	- Location analyzed project  

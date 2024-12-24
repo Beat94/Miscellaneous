@@ -28,4 +28,10 @@
     <ProjectReference Include="..\MermaidCreator\MermaidCreator.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Testdata\Testcase1Input.cs.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

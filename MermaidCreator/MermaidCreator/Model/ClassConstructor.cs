@@ -6,9 +6,17 @@ using System.Threading.Tasks;
 
 namespace MermaidCreator.Model;
 
+/// <summary>
+/// Used to show class. Lists functions and Variables of a function
+/// </summary>
 public class ClassConstructor
 {
-    public string ClassName { get; set; }
+    public string ClassName;
     public IList<ClassFunction> Functions = new List<ClassFunction>();
     public IList<ClassVariable> Variables = new List<ClassVariable>();
+
+    public ClassConstructor(string name)
+    {
+        ClassName = name;
+    }
 }

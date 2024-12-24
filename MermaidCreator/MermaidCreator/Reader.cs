@@ -11,17 +11,27 @@ public class Reader
         ClassManager ClassManagerOutput = new();
 
         // goes through project and creates Mermaid model using Mermaid Model-Class
+        // Filters all files in folder with the ending .cs and puts the result in a string Array
         string[] fileList = Directory.GetFiles(location, "*.cs", SearchOption.AllDirectories);
 
         foreach (string file in fileList)
-        { 
-        
+        {
+            // Opens file and analizes it
+            try
+            {
+                // https://learn.microsoft.com/en-us/dotnet/standard/io/how-to-read-text-from-a-file
+                using StreamReader reader = new(file);
+                string text = reader.ReadToEnd();
+                Console.Write(text);
+
+                AnalyzeFile(text);
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine("Error on reading File");
+                Console.WriteLine(e.Message);
+            }
         }
-
-
-        // Filters all files in folder with the ending .cs
-
-        // Opens file and analizes it
 
         return ClassManagerOutput;
     }

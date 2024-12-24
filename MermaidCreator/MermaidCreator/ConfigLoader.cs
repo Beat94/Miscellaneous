@@ -18,6 +18,12 @@ internal class ConfigLoader
         return loadConfig(null, null);
     }
 
+    /// <summary>
+    /// Loads configfile in the defined Link over first or second parameter
+    /// </summary>
+    /// <param name="link">Link to configFile</param>
+    /// <param name="args"></param>
+    /// <returns></returns>
     internal IConfiguration loadConfig(string? link, string[]? args)
     {
         string linkConfig;
@@ -31,9 +37,9 @@ internal class ConfigLoader
             {
                 linkConfig = args.FirstOrDefault();
             }
-            if (this.link != null)
+            else if (this.link != null)
             {
-                linkConfig = link;
+                throw new NullReferenceException();
             }
         }
         catch (Exception ex)
@@ -62,15 +68,4 @@ internal class ConfigLoader
     { 
         return config.GetSection(section);
     }
-
-    /*
-    public void cl()
-    {
-        var builder = new ConfigurationBuilder();
-
-        IConfiguration config = builder.Build();
-
-        var appSettings = config.GetSection<AppSettings>();
-    }
-    */
 }

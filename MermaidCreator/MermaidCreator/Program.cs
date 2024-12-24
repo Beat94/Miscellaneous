@@ -10,37 +10,70 @@ public class Program
 
     public static void Main(string[] args)
     {
-        Configuration = Toolbox.loadConfigModule();
+        Configuration = Toolbox.LoadConfigModule(null, args);
 
+        ReflectionHelper reflectionHelp = new();
         Console.WriteLine("Hallo Welt");
-        confTest();
+        string ConfigTestMode = "true";
 
-        cmTest();
-    }
-
-    public static void confTest()
-    {
-        if (Configuration != null 
-            && !Configuration["Folder"].Equals(null))
+        try
         {
-            Console.WriteLine($"Folder: {Configuration["Folder"]}");
+            ConfigTestMode ??= Configuration["Testmode"] ?? "false";
+        }
+        catch (Exception ex)
+        {
+            _ = ex;
+        }
+
+        // if Testmode then use following two commands
+        if (ConfigTestMode.Equals("true", StringComparison.InvariantCultureIgnoreCase))
+        { 
+            confTest();
+
+            CmTest();
+
+            ClassManager selfReflectionClasses = reflectionHelp.SelfReflection();
+            Export ex = new();
+
+            Console.WriteLine(ex.CreateClassdiagram(selfReflectionClasses));
+        }
+        else
+        {
+            Console.WriteLine($"This is Testmode {ConfigTestMode}");
         }
     }
 
-    public static void cmTest()
+    /// <summary>
+    /// Lists configuration values - loaded of config-file
+    /// </summary>
+    public static void confTest()
+    {
+        if (
+            Configuration != null 
+            && !Configuration["Folder"].Equals(null))
+        {
+            Console.WriteLine($"Folder: {Configuration["Folder"]}");
+            Console.WriteLine($"Testmode: {Configuration["Testmode"]}");
+        }
+    }
+
+    /// <summary>
+    /// Test of classmanager -> with direct output to cli
+    /// </summary>
+    public static void CmTest()
     {
         ClassManager cm = new()
         { 
             DiagramName = "Test Diagramm"
         };
 
-        ClassConstructor cc = new() { ClassName = "lul" };
+        ClassConstructor cc = new("lul");
         ClassFunction cf = new() { Name = "getter", accessModifier = AccessModifier.general };
-        ClassVariable cv = new() { Name = "Name", varType = "String", accessModifier = AccessModifier.privat };
+        ClassVariable cv = new ClassVariable("String") { Name = "Name", accessModifier = AccessModifier.privat };
 
-        ClassConstructor cc2 = new() { ClassName = "lul2" };
+        ClassConstructor cc2 = new("lul2");
         ClassFunction cf2 = new() { Name = "getter", accessModifier = AccessModifier.general };
-        ClassVariable cv2 = new() { Name = "Name", varType = "String", accessModifier = AccessModifier.privat };
+        ClassVariable cv2 = new ClassVariable("String") { Name = "Name", accessModifier = AccessModifier.privat };
 
         ClassRelationship cr = new()
         {
@@ -62,5 +95,16 @@ public class Program
         Export ex = new();
 
         Console.WriteLine(ex.CreateClassdiagram(cm));
+    }
+
+    /// <summary>
+    /// Festfunction planned are multiple tests<br/>
+    /// Modes:<br/>
+    /// 0: ??
+    /// </summary>
+    /// <param name="mode"></param>
+    public static void MultiTestfunction(int mode)
+    { 
+    
     }
 }
