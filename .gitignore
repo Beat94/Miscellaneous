@@ -6,3 +6,4 @@
 **/bin/**
 *.json
 **/obj/**
+*.conf
