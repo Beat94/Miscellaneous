@@ -7,8 +7,8 @@ Function encode($Link)
 
 Function decode($Input, $OutputLink)
 {
-    "Input: " + $Input
-    "OutputLink: " + $OutputLink
+    Write-Host "Input: " $Input.Text
+    Write-Host "OutputLink: " $OutputLink.Text
 }
 
 Function UserInterfaceEncoding()
@@ -19,7 +19,7 @@ Function UserInterfaceEncoding()
 Function UserInterfaceDecoding()
 {
     "Decoding GUI"
-    $SaveLink = "Save"
+    $SaveLink
     # Insert String into
     $FormDecode = New-Object Windows.Forms.Form;
     $FormDecode.Text = "Decoding UI";
@@ -40,17 +40,21 @@ Function UserInterfaceDecoding()
         # https://www.reddit.com/r/PowerShell/comments/6bag66/trying_to_use_a_save_as_gui_screen/
         $dialog = New-Object System.Windows.Forms.SaveFileDialog
         $dialog.filter = "PDF Files (*.pdf)|*.pdf"
-        $SaveLink = $dialog.ShowDialog()
-        $SaveLink
+        if($dialog.ShowDialog() -eq 'OK')
+        {
+            $SaveLink = out-file -FilePath $dialog.FileName
+        }
+        Write-host "First Test: " $SaveLink
     });
 
     $NextButton = New-Object Windows.Forms.Button;
     $NextButton.Text = "Decode";
     $NextButton.Location = New-Object System.Drawing.Point((10, 90));
     $NextButton.Add_Click({
-        $TextBoxInput.Text
-        $SaveLink.Text
-        decode($TextBoxInput.Text,$SaveLink.Text)
+        $tbIn = $TextBoxInput.Text
+        Write-Host $tbIn
+        Write-Host $SaveLink
+        decode($tbIn, $SaveLink)
     });
 
     $FormDecode.Controls.add($TextBoxInput);
@@ -66,6 +70,8 @@ Function UserInterfaceDecoding()
 
 Function UserInterfaceMain()
 {
+    "Main User Interface"
+
     $Form = New-Object Windows.Forms.Form;
     $Form.Text = "PDF Base64 En- and Decoder";
 
@@ -73,10 +79,16 @@ Function UserInterfaceMain()
     $Button.Text = "Decoding";
     $Button.Add_Click({UserInterfaceDecoding});
 
+    $Button2 = New-Object Windows.Forms.Button;
+    $Button2.Text = "Lolz";
+    $Button2.Location = New-Object System.Drawing.Point((10, 50));
+    $Button2.Add_Click({Write-Host "Dies war ein Klick"});
+
     $form.Controls.add($Button);
+    #$form.Controls.add($Button2);
     $Form.ShowDialog();
 }
 
 
-#UserInterfaceMain;
-UserInterfaceDecoding;
+UserInterfaceMain;
+#UserInterfaceDecoding;
