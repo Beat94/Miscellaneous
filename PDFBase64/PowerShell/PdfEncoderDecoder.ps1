@@ -5,10 +5,11 @@ Function encode($Link)
     return $output;
 }
 
-Function decode($Input, $OutputLink)
+Function decode($Input)
 {
-    Write-Host "Input: " $Input.Text
-    Write-Host "OutputLink: " $OutputLink.Text
+    $outputlolz = $input | Out-String;
+
+    Write-Host "Input: " $outputlolz;
 }
 
 Function UserInterfaceEncoding()
@@ -37,6 +38,9 @@ Function UserInterfaceDecoding()
     $SaveButton.Text = "Speicherort";
     $SaveButton.Location = New-Object System.Drawing.Point((10, 50));
     $SaveButton.Add_Click({
+        $lolz = $TextboxInput.Text | Out-String;
+        Write-host $TextboxInput.Text;
+        decode($lolz.ToString())
         # https://www.reddit.com/r/PowerShell/comments/6bag66/trying_to_use_a_save_as_gui_screen/
         $dialog = New-Object System.Windows.Forms.SaveFileDialog
         $dialog.filter = "PDF Files (*.pdf)|*.pdf"
@@ -51,7 +55,7 @@ Function UserInterfaceDecoding()
     $NextButton.Text = "Decode";
     $NextButton.Location = New-Object System.Drawing.Point((10, 90));
     $NextButton.Add_Click({
-        $tbIn = $TextBoxInput.Text
+        $tbIn = $TextBoxInput.Text | Out-String
         Write-Host $tbIn
         Write-Host $SaveLink
         decode($tbIn, $SaveLink)
@@ -64,8 +68,6 @@ Function UserInterfaceDecoding()
 
     $FormDecode.add_shown({$FormDecode.Activate()})
     $FormDecode.ShowDialog();
-
-    decode($FileInput, $FileLocation);
 }
 
 Function UserInterfaceMain()
