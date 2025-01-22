@@ -5,24 +5,20 @@ namespace Application;
 
 public class Sys1 : IJsonSystem
 {
-    internal Guid lolz()
-    { 
-        return Guid.NewGuid();
-    }
-
     public JObject SetNewGuids(JObject input, string[] valuesToChange)
     {
         // should go through valuesToChange and set new Guids
-        foreach (string value in valuesToChange)
+
+        try
         {
-            try
+            foreach (string value in valuesToChange)
             {
-                
+                input[value] = Guid.NewGuid().ToString();
             }
-            catch (Exception ex)
-            { 
-                
-            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
         }
 
         return input;

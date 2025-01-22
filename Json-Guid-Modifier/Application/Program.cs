@@ -11,6 +11,5 @@ internal class Program
         sys.SetNewGuids(new JObject(), ["asdf", "asdf"]);
 
         Console.WriteLine("Hello, World 2!");
-        Console.WriteLine($"Automatic randomized GUID: {sys.lolz().ToString()}");
     }
 }
