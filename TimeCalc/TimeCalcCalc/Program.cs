@@ -36,7 +36,6 @@ class Program
             string input = "";
             string parsedInput = "";
             double timeResult = 0.0f;
-            
 
             // find File by filename
             try
