@@ -41,7 +41,6 @@ class Program
             // find File by filename
             try
             {
-
                 StreamReader streamRead = new StreamReader($"{config.LocationFiles}\\{filename}");
                 input = streamRead.ReadLine();
                 streamRead.Close();
@@ -51,7 +50,6 @@ class Program
                 logging.newEntry(LogType.Error, $"File {filename} not found \n {ex}");
                 continue;
             }
-
 
             // parse input
             parsedInput = input.TrimStart('-');
@@ -77,7 +75,6 @@ class Program
             }
 
             // maybe check if array lenghts modulo 2 is 0
-
             for(int i = 0; i < inputSplitTimeArray.Count - 1; i += 2)
             {
                 //TimeOnly timeLower = TimeOnly.Parse(inputSplitTimeArray.[i]);
@@ -87,7 +84,6 @@ class Program
                 // add time for each part
                 timeResult += tb.TimeCalc(timeLower, timeHigher);
             }
-
 
             pointer++;
 
