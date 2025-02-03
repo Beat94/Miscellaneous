@@ -36,12 +36,10 @@ class Program
             string input = "";
             string parsedInput = "";
             double timeResult = 0.0f;
-            
 
             // find File by filename
             try
             {
-
                 StreamReader streamRead = new StreamReader($"{config.LocationFiles}\\{filename}");
                 input = streamRead.ReadLine();
                 streamRead.Close();
@@ -52,22 +50,30 @@ class Program
                 continue;
             }
 
-
             // parse input
             parsedInput = input.TrimStart('-');
             parsedInput = parsedInput.TrimStart(' ');
             string[] inputSplitArray = parsedInput.Split(" | ");
             List<TimeOnly> inputSplitTimeArray = new List<TimeOnly>();
+            string formattedInput = String.Empty;
 
             foreach(string item in inputSplitArray)
             {
                 string[] splitItem = item.Split(" - ");
                 inputSplitTimeArray.Add(TimeOnly.Parse(splitItem[0]));
                 inputSplitTimeArray.Add(TimeOnly.Parse(splitItem[1]));
+
+                if (formattedInput.Length == 0)
+                {
+                    formattedInput = $"{splitItem[0]} - {splitItem[1]}";
+                }
+                else
+                {
+                    formattedInput += $" | {splitItem[0]} - {splitItem[1]}";
+                }
             }
 
             // maybe check if array lenghts modulo 2 is 0
-
             for(int i = 0; i < inputSplitTimeArray.Count - 1; i += 2)
             {
                 //TimeOnly timeLower = TimeOnly.Parse(inputSplitTimeArray.[i]);
@@ -78,7 +84,6 @@ class Program
                 timeResult += tb.TimeCalc(timeLower, timeHigher);
             }
 
-
             pointer++;
 
             if(pointer > 999)
@@ -87,7 +92,7 @@ class Program
             }
 
             // write calculation each day in File
-            outputHandler.addEntry($"{config.LocationFiles}\\{filename}", input, timeResult);
+            outputHandler.addEntry($"{config.LocationFiles}\\{filename}", formattedInput, timeResult);
         }
 
         // output
