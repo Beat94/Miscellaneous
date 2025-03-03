@@ -7,7 +7,6 @@ public partial class Form1
 {
     FileType fileTypeModel;
     string filepath;
-    //var fileStream;
 
     #region UI-Wide Functions
     void CloseFunction(object sender, EventArgs e)
@@ -39,7 +38,7 @@ public partial class Form1
     {
 
         List<string> filetypesNameList = new();
-        filetypesNameList.Add(" ");
+        filetypesNameList.Add(string.Empty);
 
         foreach (Filetypes filetyp in this.fileTypeModel.Filetypes)
         {
