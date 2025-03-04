@@ -2,11 +2,11 @@
   "Filetypes": [
     {
       "Name": "PDF",
-      "Fileending": ".pdf"
+      "Fileending": "*.pdf"
     },
     {
       "Name": "JPEG",
-      "Fileending": ".jpg"
+      "Fileending": "*.jpg"
     }
   ]
 }
