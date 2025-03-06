@@ -20,12 +20,13 @@ public partial class Form1
     }
     void ToClipboard(object sender, EventArgs e)
     {
+        Clipboard.Clear();
+
         if (tabControl1.SelectedIndex == 0)
         {
             // File -> Base64
             //Clipboard.SetText("Index 0");
-            Clipboard.Clear();
-
+            
             string path = string.Empty;
 
             // Value loading from interface
