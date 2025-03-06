@@ -1,4 +1,5 @@
 ﻿using Base64Trafo.DataModels;
+using System.CodeDom;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
@@ -22,7 +23,8 @@ public partial class Form1
         if (tabControl1.SelectedIndex == 0)
         {
             // File -> Base64
-            Clipboard.SetText("Index 1");
+            //Clipboard.SetText("Index 0");
+            Clipboard.Clear();
 
             string path = string.Empty;
 
@@ -48,7 +50,7 @@ public partial class Form1
                 return $".{xList.ElementAt(xList.Count - 1)}";
             }
 
-            string fileedingUI = "." + FileEndingUIFunc(path);
+            string fileedingUI = FileEndingUIFunc(path);
 
             foreach (Filetypes filetypes in fileTypeModel.Filetypes)
             {
@@ -57,6 +59,7 @@ public partial class Form1
                 if (fileedingUI.Equals(fileendingJson))
                 {
                     isCorrectFiletype = true;
+                    break;
                 }
             }
 
@@ -66,8 +69,8 @@ public partial class Form1
                 return;
             }
 
-            // load Base64 encoded string to clipboard
-
+            // load file => string Base64 to clipboard
+            Clipboard.SetText(loadFileToBase64(path));
         }
         else
         {
@@ -75,6 +78,7 @@ public partial class Form1
             Clipboard.SetText("Index 2");
         }
     }
+
     #endregion
 
     #region Startup Functions
@@ -124,5 +128,8 @@ public partial class Form1
 
         FileLocation.Text = filepath;
     }
+
+    public string loadFileToBase64(string link) => 
+        Convert.ToBase64String(File.ReadAllBytes(link));
     #endregion
 }
