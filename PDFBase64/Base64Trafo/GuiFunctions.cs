@@ -76,7 +76,18 @@ public partial class Form1
         else
         {
             // Base64 -> File
-            Clipboard.SetText("Index 2");
+            // Clipboard.SetText("Index 2");
+
+            // check if Base64 Textbox is filled and some filetype are choosen
+            if (string.IsNullOrEmpty(Base64Input.Text)
+                || Filetype.SelectedIndex == 0)
+            {
+                MessageBox.Show("No Base64 Code and/or Filetype selected");
+                return;
+            }
+
+            // put 'File' to clipboard
+
         }
     }
 
@@ -109,7 +120,7 @@ public partial class Form1
             filetypesNameList.Add(filetyp.Name);
         }
 
-        comboBox1.DataSource = filetypesNameList;
+        Filetype.DataSource = filetypesNameList;
     }
     #endregion
 

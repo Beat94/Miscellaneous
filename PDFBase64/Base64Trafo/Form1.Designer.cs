@@ -35,7 +35,7 @@
             label1 = new Label();
             tabPage2 = new TabPage();
             label3 = new Label();
-            comboBox1 = new ComboBox();
+            Filetype = new ComboBox();
             label2 = new Label();
             Base64Input = new TextBox();
             button1 = new Button();
@@ -98,7 +98,7 @@
             // tabPage2
             // 
             tabPage2.Controls.Add(label3);
-            tabPage2.Controls.Add(comboBox1);
+            tabPage2.Controls.Add(Filetype);
             tabPage2.Controls.Add(label2);
             tabPage2.Controls.Add(Base64Input);
             tabPage2.Location = new Point(4, 24);
@@ -118,13 +118,13 @@
             label3.TabIndex = 3;
             label3.Text = "Filetype:";
             // 
-            // comboBox1
+            // Filetype
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(120, 70);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(233, 23);
-            comboBox1.TabIndex = 2;
+            Filetype.FormattingEnabled = true;
+            Filetype.Location = new Point(120, 70);
+            Filetype.Name = "Filetype";
+            Filetype.Size = new Size(233, 23);
+            Filetype.TabIndex = 2;
             // 
             // label2
             // 
@@ -196,6 +196,6 @@
         private Label label2;
         private TextBox Base64Input;
         private Label label3;
-        private ComboBox comboBox1;
+        private ComboBox Filetype;
     }
 }
