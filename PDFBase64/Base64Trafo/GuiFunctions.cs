@@ -91,7 +91,7 @@ public partial class Form1
             string fileTypeFromDropdown = fileTypeModel.Filetypes[Filetype.SelectedIndex - 1].Fileending;
 
             MemoryStream ms = new MemoryStream();
-            ms.Write(Convert.FromBase64String(Base64Input.Text),0, Convert.FromBase64String(Base64Input.Text).Length);
+            ms.Write(Convert.FromBase64String(Base64Input.Text), 0, Convert.FromBase64String(Base64Input.Text).Length);
 
             Clipboard.SetData($"ClipboardFile{fileTypeFromDropdown}", ms);
         }
