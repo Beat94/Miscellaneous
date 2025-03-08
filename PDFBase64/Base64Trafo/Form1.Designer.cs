@@ -138,6 +138,7 @@
             // Base64Input
             // 
             Base64Input.Location = new Point(120, 25);
+            Base64Input.MaxLength = 0;
             Base64Input.Name = "Base64Input";
             Base64Input.Size = new Size(594, 23);
             Base64Input.TabIndex = 0;
@@ -178,9 +179,9 @@
             tabPage1.PerformLayout();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
-            ResumeLayout(false);
             LoadFileTypeModel();
             FillComboBox();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -194,8 +195,8 @@
         private Button button3;
         private TextBox FileLocation;
         private Label label2;
-        private TextBox Base64Input;
         private Label label3;
         private ComboBox Filetype;
+        private TextBox Base64Input;
     }
 }

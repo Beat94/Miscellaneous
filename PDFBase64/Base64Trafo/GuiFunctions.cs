@@ -86,8 +86,14 @@ public partial class Form1
                 return;
             }
 
-            // put 'File' to clipboard
+            DataObject dataObj = new DataObject(Convert.FromBase64String(Base64Input.Text));
+            // put 'File' to Clipboard
+            string fileTypeFromDropdown = fileTypeModel.Filetypes[Filetype.SelectedIndex - 1].Fileending;
 
+            MemoryStream ms = new MemoryStream();
+            ms.Write(Convert.FromBase64String(Base64Input.Text),0, Convert.FromBase64String(Base64Input.Text).Length);
+
+            Clipboard.SetData($"ClipboardFile{fileTypeFromDropdown}", ms);
         }
     }
 
@@ -143,5 +149,22 @@ public partial class Form1
 
     public string loadFileToBase64(string link) => 
         Convert.ToBase64String(File.ReadAllBytes(link));
+    #endregion
+
+    #region Tab2 Functions
+    /// <summary>
+    /// Checks if string is Base64 standard otherwise correct it with a '=' in the end
+    /// </summary>
+    /// <param name="input">Input string</param>
+    /// <returns></returns>
+    public string checkIfBase64IsCorrect(string input)
+    {
+        if (!input.EndsWith('='))
+        {
+            input += "=";
+        }
+
+        return input;
+    }
     #endregion
 }
