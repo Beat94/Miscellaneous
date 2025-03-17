@@ -9,4 +9,5 @@ public class Filetypes
 {
     public string Name { get; set; }
     public string Fileending { get; set; }
+    public string Formatbezeichner { get; set; }
 }

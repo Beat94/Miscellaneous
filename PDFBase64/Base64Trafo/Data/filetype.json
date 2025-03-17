@@ -2,11 +2,13 @@
   "Filetypes": [
     {
       "Name": "PDF",
-      "Fileending": "*.pdf"
+      "Fileending": "*.pdf",
+      "Formatbezeichner":  "application/pdf"
     },
     {
       "Name": "JPEG",
-      "Fileending": "*.jpg"
+      "Fileending": "*.jpg",
+      "Formatbezeichner": "image/jpeg"
     }
   ]
 }

@@ -24,9 +24,7 @@ public partial class Form1
 
         if (tabControl1.SelectedIndex == 0)
         {
-            // File -> Base64
-            //Clipboard.SetText("Index 0");
-            
+            // File -> Base64           
             string path = string.Empty;
 
             // Value loading from interface
@@ -86,14 +84,16 @@ public partial class Form1
                 return;
             }
 
-            DataObject dataObj = new DataObject(Convert.FromBase64String(Base64Input.Text));
+            byte[] dataObj = Convert.FromBase64String(Base64Input.Text);
             // put 'File' to Clipboard
-            string fileTypeFromDropdown = fileTypeModel.Filetypes[Filetype.SelectedIndex - 1].Fileending;
+            Clipboard.SetData(fileTypeModel.Filetypes[Filetype.SelectedIndex - 1].Formatbezeichner, dataObj);
 
+            /*
             MemoryStream ms = new MemoryStream();
             ms.Write(Convert.FromBase64String(Base64Input.Text), 0, Convert.FromBase64String(Base64Input.Text).Length);
 
             Clipboard.SetData($"ClipboardFile{fileTypeFromDropdown}", ms);
+            */
         }
     }
 
@@ -136,7 +136,6 @@ public partial class Form1
         using (OpenFileDialog openFileDialog = new())
         {
             openFileDialog.Filter = openFileDialogFilter;
-            //openFileDialog.FilterIndex = 2;
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
