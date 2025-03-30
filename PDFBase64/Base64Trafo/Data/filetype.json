@@ -1,0 +1,14 @@
+{
+  "Filetypes": [
+    {
+      "Name": "PDF",
+      "Fileending": "*.pdf",
+      "Formatbezeichner":  "application/pdf"
+    },
+    {
+      "Name": "JPEG",
+      "Fileending": "*.jpg",
+      "Formatbezeichner": "image/jpeg"
+    }
+  ]
+}
