@@ -15,7 +15,7 @@ class SummaryRequest(BaseModel):
 class SummaryResponse(BaseModel):
     summary: str
 
-@app.get("/lolz")
+@app.get("/test")
 async def readLolz():
     print("Lolz called")
     return {"message": "Test"}
