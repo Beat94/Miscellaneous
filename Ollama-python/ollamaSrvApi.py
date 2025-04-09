@@ -44,7 +44,6 @@ async def summarize_text(request_data: SummaryRequest):
                     data = json.loads(line.decode('utf-8'))
                     if 'response' in data:
                         summary += data['response']
-                        print("Antwort erhalten")
                 except json.JSONDecodeError:
                     print(f"Fehler beim Dekodieren der JSON-Zeile: {line}")
 
