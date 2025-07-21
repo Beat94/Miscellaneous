@@ -1,5 +1,7 @@
 ﻿using Base64Trafo.DataModels;
 using System.CodeDom;
+using System.Drawing.Imaging;
+using System.Net.Mime;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
@@ -77,23 +79,9 @@ public partial class Form1
             // Clipboard.SetText("Index 2");
 
             // check if Base64 Textbox is filled and some filetype are choosen
-            if (string.IsNullOrEmpty(Base64Input.Text)
-                || Filetype.SelectedIndex == 0)
-            {
-                MessageBox.Show("No Base64 Code and/or Filetype selected");
-                return;
-            }
 
-            byte[] dataObj = Convert.FromBase64String(Base64Input.Text);
-            // put 'File' to Clipboard
-            Clipboard.SetData(fileTypeModel.Filetypes[Filetype.SelectedIndex - 1].Formatbezeichner, dataObj);
 
-            /*
-            MemoryStream ms = new MemoryStream();
-            ms.Write(Convert.FromBase64String(Base64Input.Text), 0, Convert.FromBase64String(Base64Input.Text).Length);
-
-            Clipboard.SetData($"ClipboardFile{fileTypeFromDropdown}", ms);
-            */
+            Base64ToClipboard();
         }
     }
 
@@ -102,7 +90,7 @@ public partial class Form1
     #region Startup Functions
     void LoadFileTypeModel()
     {
-        this.fileTypeModel = JsonSerializer.Deserialize<FileType>(File.ReadAllText(".\\Data\\filetype.json"));
+        fileTypeModel = JsonSerializer.Deserialize<FileType>(File.ReadAllText(".\\Data\\filetype.json"));
         List<Filetypes> fileTypesList = fileTypeModel.Filetypes.ToList();
 
         foreach (Filetypes fileTypes in fileTypesList)
@@ -164,6 +152,27 @@ public partial class Form1
         }
 
         return input;
+    }
+
+    // To Fix
+    public void Base64ToClipboard()
+    {
+        byte[] bytes = Convert.FromBase64String(Base64Input.Text);
+        DataObject dataObject = new DataObject();
+
+        if (string.IsNullOrEmpty(Base64Input.Text)
+            || Filetype.SelectedIndex == 0)
+        {
+            MessageBox.Show("No Base64 Code and/or Filetype selected");
+            return;
+        }
+
+        using (MemoryStream stream = new MemoryStream(bytes))
+        {
+            dataObject.SetData(fileTypeModel.Filetypes[Filetype.SelectedIndex].Name , stream);
+        }
+
+        Clipboard.SetDataObject(dataObject, true);
     }
     #endregion
 }
