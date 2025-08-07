@@ -56,19 +56,29 @@ internal class MouseHelper
         bool isDebugMode,
         bool isIntelligent)
     {
-        if (isDebugMode)
-        {
-            Console.WriteLine($"Mouse position set to: x {xMousePos + xShift}, y {yMousePos + yShift}");
-        }
-
         if (isIntelligent)
         {
             IntelliMouseHelper(xShift, yShift, isDebugMode);
         }
         else
         {
-            Mouse.SetCursorPos(xMousePos + xShift, yMousePos + xShift);
+            DumbMouseHelper(xShift, yShift, xMousePos, yMousePos, isDebugMode);
         }
+    }
+
+    private void DumbMouseHelper(
+        int xShift, 
+        int yShift, 
+        int xMousePos, 
+        int yMousePos, 
+        bool isDebugMode)
+    {
+        if (isDebugMode)
+        {
+            Console.WriteLine($"Mouse position set to: x {xMousePos + xShift}, y {yMousePos + yShift}");
+        }
+
+        Mouse.SetCursorPos(xMousePos + xShift, yMousePos + xShift);
     }
 
     private void IntelliMouseHelper(int setX, int setY, bool isDebugMode)
