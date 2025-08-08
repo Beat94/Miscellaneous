@@ -23,7 +23,7 @@ Can be used to write new GUID into json (unsure if it works)
 
 # explanation - MouseWiggler
 The plan behind MouseWiggler is move mouse to prevent screensaver - if awake functionality is forbidden by sysadmin.
-=> has to be tested if it works
+=> does not work.
 
 # explanation - Ollama-python
 A simple mcp-server which provides a api to summarize input.
