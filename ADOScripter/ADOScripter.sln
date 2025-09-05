@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36408.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADOScripter", "ADOScripter.csproj", "{9FD805E0-3F69-4C92-A7AD-0A45B1E35E18}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9FD805E0-3F69-4C92-A7AD-0A45B1E35E18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FD805E0-3F69-4C92-A7AD-0A45B1E35E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FD805E0-3F69-4C92-A7AD-0A45B1E35E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FD805E0-3F69-4C92-A7AD-0A45B1E35E18}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {24A81FBC-81E2-4B55-8EFF-C5445DB6A5C6}
+	EndGlobalSection
+EndGlobal
