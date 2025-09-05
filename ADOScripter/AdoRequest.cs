@@ -51,6 +51,9 @@ public class AdoRequest
 
             if (debug)
             {
+                Console.WriteLine($"WorkItem ID:\t{featureId}");
+                Console.WriteLine($"Debug:\t\t{configModel.AreaPath}");
+                Console.WriteLine($"IterationPath:\t{configModel.IterationPath}");
                 Console.WriteLine(json);
                 //return "Debug mode - no work items created.";
             }
