@@ -52,7 +52,7 @@ public class TestCaseCreator
                     path = "/relations/-",
                     value = new
                     {
-                        rel = "Microsoft.VSTS.Common.TestedBy-Forward",
+                        rel = "Microsoft.VSTS.Common.TestedBy-Reverse",
                         url = $"https://dev.azure.com/{configModel.Organization}/_apis/wit/workItems/{featureId}",
                         attributes = new
                         {
