@@ -65,6 +65,7 @@ public class MarkdownHelperTest
     {
         List<(string desc, string toc)> result = markdownHelper.GoThroughFile(inputText, true);
 
-        result.Should().Contain(desc[0]);
+        result[0].desc.Should().Contain(desc[0]);
+        result[0].toc.Should().Contain(toc[0]);
     }
 }
