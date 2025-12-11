@@ -9,6 +9,7 @@ public class MarkdownHelper
 
     private bool testing;
     List<(string toc, string desc)> tableOfContent = new();
+    List<string> markdownFileList = new();
 
     public MarkdownHelper(bool testing)
     {
@@ -23,8 +24,6 @@ public class MarkdownHelper
     /// <returns></returns>
     public List<(string toc, string desc)> GoThroughFile(string filePath)
     {
-        List<string> markdownFileList = new();
-
         if(!testing)
         {
             markdownFileList = File.ReadAllLines(filePath).ToList();
@@ -89,6 +88,14 @@ public class MarkdownHelper
     }
 
     // for further development
-    public string replaceStringWithToc(string input)
-    => input;
+    public void replaceStringWithToc(string tag, string toc)
+    {
+        int i = 0;
+
+        foreach(string line in markdownFileList)
+        {
+            markdownFileList[i] = line.Replace(tag, toc);
+            i++;
+        }
+    }
 }
