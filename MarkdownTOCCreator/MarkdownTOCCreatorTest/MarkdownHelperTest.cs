@@ -40,7 +40,6 @@ public class MarkdownHelperTest
         result.Should().Be(targetValue);
     }
 
-    
     [Theory]
     // Fall 1: einfache Überschriften mit unterschiedlichen Levels und Satzzeichen
     [InlineData(
@@ -59,7 +58,7 @@ public class MarkdownHelperTest
         "## Ziele: Was wollen wir?\n" +
         "### Begriffe &lt;Definitionen&gt;\n",
         new[] { "Einführung amp; Überblick", "Ziele Was wollen wir?", "Begriffe lt;Definitionengt;" },
-        new[] { "# einführung  überblick", "## ziele was wollen wir", "### begriffe definitionen" }
+        new[] { "einführung-überblick", "ziele-was-wollen-wir", "begriffe-definitionen" }
     )]
     public void GoThroughFile(string inputText, string[] desc, string[] toc)
     {
