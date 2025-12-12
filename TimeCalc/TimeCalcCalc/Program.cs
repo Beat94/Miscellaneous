@@ -11,7 +11,7 @@ class Program
     static Toolbox tb = new();
     static Logging logging = new Logging();
     static OutputHandler outputHandler = new OutputHandler();
-    static string link = $"C:\\Devlopment\\private\\Miscellaneous\\TimeCalc\\TimeCalcCalc\\config.conf";
+    static string link = $".\\..\\..\\..\\config.conf";
 
     public static void Main(string[] args)
     {
