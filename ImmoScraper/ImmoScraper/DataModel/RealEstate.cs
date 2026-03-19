@@ -1,5 +1,8 @@
 ﻿namespace ImmoScraper.DataModel;
 
+/// <summary>
+/// Datamodel for export for example to sql 
+/// </summary>
 public class RealEstate
 {
     public string title { get; set; }

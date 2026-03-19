@@ -4,7 +4,7 @@
     {
         Console.WriteLine("Hello World from Scrapermanager");
         
-        // Todo: Get Data out of both 'Homegate' and 'Immoscout'
+        // Todo: Get Data out of both 'Homegate', 'Comparis' and 'Immoscout'
         
         // Todo: load List out of sql (if it exists)
         

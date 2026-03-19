@@ -2,8 +2,8 @@
 
 public enum RegionType
 {
-    kanton,
-    plz,
-    region,
-    ort
+    Kanton,
+    Plz,
+    Region,
+    Ort
 }

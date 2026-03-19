@@ -2,8 +2,8 @@
 
 public class HomegateImmoSetting
 {
-    public RegionType regionType { get; set; }
-    public string regionInfo { get; set; }
+    public RegionType? regionType { get; set; }
+    public string? regionInfo { get; set; }
     public string? umkreisInMeter { get; set; }
     public string? anzZimmerVon { get; set; }
     public string? anzZimmerBis { get; set; }

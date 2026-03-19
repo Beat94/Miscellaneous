@@ -7,10 +7,21 @@ public class SqliteHelper
         using var connection = new SqliteConnection($"Data Source={link}//immoscraper.db");
         connection.Open();
 
-        using var command = connection.CreateCommand();
+        
+        // Todo: SQL 1. Call of table 
+        
+        using SqliteCommand command = connection.CreateCommand();
         /*
          * CREATE TABLE IF NOT EXISTS Immobilien (...); 
          */
-        command.CommandText("");
+        command.CommandText = """
+                                CREATE TABLE IF NOT EXISTS Immobilien (...); 
+                              """;
     }
+    
+    // Todo: write on table
+    
+    // Todo: read on table
+    
+    
 }
