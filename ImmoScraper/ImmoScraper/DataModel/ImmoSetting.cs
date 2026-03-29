@@ -1,7 +1,8 @@
 ﻿namespace ImmoScraper.DataModel;
 
-public class HomegateImmoSetting
+public class ImmoSetting
 {
+    // This one is Homegate-Specific
     public RegionType? regionType { get; set; }
     public string? regionInfo { get; set; }
     public string? umkreisInMeter { get; set; }
