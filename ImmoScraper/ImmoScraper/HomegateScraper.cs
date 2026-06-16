@@ -1,8 +1,11 @@
 ﻿using ImmoScraper.DataModel;
+using Microsoft.Playwright;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 
+// without http-client it is recommended (in this case) to do it with playwright
+// URL-Creator could be used anyway 
 public class HomegateScraper
 {
     private static string url = "https://www.homegate.ch/mieten/immobilien/";
