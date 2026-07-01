@@ -17,17 +17,18 @@ class Program
     {
         int pointer = 0;
         logging.newEntry(LogType.Info, "Started Application");
-
+        
         // Load Config
         if (args.Length > 0)
         {
             link = args[0];
         }
 
+        Console.WriteLine($"Link to Config-File {link}");
         logging.newEntry(LogType.Info, $"Set link to config-file is: {link}");
-
         config = tb.LoadConfig(link);
-         
+        Console.WriteLine(@$"Config-File:
+                          config: {config.LocationFiles}");
 
         // search files, load them and calc
         for (DateOnly dateIndicator = config.Start; dateIndicator <= config.End; dateIndicator = dateIndicator.AddDays(1))
