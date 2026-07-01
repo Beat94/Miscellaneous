@@ -25,11 +25,8 @@ class Program
         }
 
         Console.WriteLine($"Link to Config-File {link}");
-        
         logging.newEntry(LogType.Info, $"Set link to config-file is: {link}");
-
         config = tb.LoadConfig(link);
-
         Console.WriteLine(@$"Config-File:
                           config: {config.LocationFiles}");
 
